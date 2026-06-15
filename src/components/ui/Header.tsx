@@ -18,13 +18,13 @@ export const Header = () => {
     const currentPath = "#";
 
     const menuItems = [
-        { label: "Beranda", href: "#", icon: <Home size={18} /> },
-        { label: "Profil", href: "#profil", icon: <User size={18} /> },
-        { label: "Pendidikan", href: "#pendidikan", icon: <GraduationCap size={18} /> },
-        { label: "Pendaftaran", href: "#pendaftaran", icon: <ClipboardList size={18} /> },
-        { label: "Galeri", href: "#galeri", icon: <Image size={18} /> },
-        { label: "Kegiatan", href: "#kegiatan", icon: <Calendar size={18} /> },
-        { label: "Kontak", href: "#kontak", icon: <Contact size={18} /> },
+        { label: "Beranda", href: "/", icon: <Home size={18} /> },
+        { label: "Profil", href: "/profile", icon: <User size={18} /> },
+        { label: "Pendidikan", href: "/pendidikan", icon: <GraduationCap size={18} /> },
+        { label: "Pendaftaran", href: "/pendaftaran", icon: <ClipboardList size={18} /> },
+        { label: "Galeri", href: "/galeri", icon: <Image size={18} /> },
+        { label: "Kegiatan", href: "/kegiatan", icon: <Calendar size={18} /> },
+        { label: "Kontak", href: "/kontak", icon: <Contact size={18} /> },
     ];
 
     return (
@@ -122,7 +122,6 @@ export const Header = () => {
                                 label={item.label}
                                 href={item.href}
                                 icon={item.icon}
-                                isActive={item.href === currentPath}
                             />
                         ))}
                     </nav>

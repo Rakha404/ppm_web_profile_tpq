@@ -1,10 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
-import Competition from "./pages/Competition";
-import Seminar from "./pages/Seminar";
-import Workshop from "./pages/Workshop";
-import Talkshow from "./pages/Talkshow";
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
 import LoginForm from "./pages/LoginForm";
@@ -18,6 +14,14 @@ import EventIndex from "./pages/dashboard/event/EventIndex";
 import CategoryCreate from "./pages/dashboard/category/CategoryCreate";
 import PembicaraCreate from "./pages/dashboard/pembicara/PembicaraCreate";
 import EventCreate from "./pages/dashboard/event/EventCreate";
+import Profile from "./pages/Profile";
+
+/* PERBAIKAN 1: Pastikan kamu sudah membuat file halaman ini dan meng-import-nya dengan HURUF KAPITAL */
+import Pendidikan from "./pages/Pendidikan"; 
+import Pendaftaran from "./pages/Pendaftaran";
+import Galeri from "./pages/Galeri";
+import Kegiatan from "./pages/Kegiatan";
+import Kontak from "./pages/Kontak";
 
 function App() {
   return (
@@ -25,10 +29,12 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Homepage />} />
-          <Route path="/competition" element={<Competition />} />
-          <Route path="/seminar" element={<Seminar />} />
-          <Route path="/workshop" element={<Workshop />} />
-          <Route path="/talkshow" element={<Talkshow />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/pendidikan" element={<Pendidikan />} />
+          <Route path="/pendaftaran" element={<Pendaftaran />} />
+          <Route path="/galeri" element={<Galeri />} />
+          <Route path="/kegiatan" element={<Kegiatan />} />
+          <Route path="/kontak" element={<Kontak />} />
         </Route>
 
         <Route element={<AuthLayout />}>
@@ -48,9 +54,8 @@ function App() {
           </Route>
         </Route>
       </Routes>
-
     </BrowserRouter>
   );
 }
 
-export default App;     
+export default App;
