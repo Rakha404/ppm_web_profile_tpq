@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
     MapPin,
     Clock,
@@ -8,7 +8,6 @@ import {
     GraduationCap,
     ClipboardList,
     Image,
-    Calendar,
     Contact,
     X,
     MessageSquare,

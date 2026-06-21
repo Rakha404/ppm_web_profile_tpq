@@ -13,7 +13,6 @@ import festival_anak2 from "../assets/festival_seni-anak_indoensia/festival_anak
 import festival_anak3 from "../assets/festival_seni-anak_indoensia/festival_anak3.jpg";
 import bukber1 from "../assets/buka_bersama/bukber1.jpg"
 import bukber2 from "../assets/buka_bersama/bukber2.jpg"
-import bukber3 from "../assets/buka_bersama/bukber3.jpg"
 import bukber4 from "../assets/buka_bersama/bukber4.jpg"
 import KritikSaran from "../components/KritikdanSaran";
 import DaftarSekarang from "../components/DaftarSekarang";

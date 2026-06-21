@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Quote } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 // Import foto kegiatan untuk background statis
-import foto_kbm from "../assets/foto_kbm.jpeg";
 import baca from "../assets/baca.jpeg";
 
 export default function KataMutiara() {

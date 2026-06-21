@@ -6,7 +6,6 @@ import DaftarSekarang from "../components/DaftarSekarang";
 
 // Import Foto Assets
 import fotbar_guru from "../assets/fotbar/fotbar_guru.jpg";
-import fotbar_murid from "../assets/fotbar/fotbar_murid.jpg";
 import kbm2 from "../assets/fotbar/kbm2.jpeg";
 import kbm3 from "../assets/fotbar/kbm3.jpeg";
 import foto_kbm from "../assets/foto_kbm.jpeg"

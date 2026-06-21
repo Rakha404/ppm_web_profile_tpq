@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Users, GraduationCap, Heart, CheckCircle2 } from 'lucide-react';
+import { useEffect } from 'react';
+import { Users, GraduationCap, CheckCircle2 } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 

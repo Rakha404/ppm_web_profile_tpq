@@ -4,7 +4,7 @@ import foto_gedung from "../assets/foto_gedung.jpg";
 import logo_tpq from "../assets/logo_tpq.png";
 import "aos/dist/aos.css";
 import SyaratPendaftaran from "../components/SyaratPendaftaran";
-import KritikSaran from "../components/KritikdanSaran";
+
 
 export const Pendaftaran = () => {
 

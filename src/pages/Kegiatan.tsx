@@ -1,7 +1,5 @@
 import BigFoto from "../components/BigFoto"; // Jika kamu mau pasang banner atas juga
 import FotoProfile from "../components/FotoProfile"; // Import komponen grid foto yang sudah dinamis
-import foto_gedung from "../assets/foto_gedung.jpg";
-import logo_tpq from "../assets/logo_tpq.png";
 import wisata_religi_1 from "../assets/wisata religi/wisata_religi_1.jpg"
 import wisata_religi_2 from "../assets/wisata religi/wisata_religi_2.jpg"
 import wisata_religi_3 from "../assets/wisata religi/wisata_religi_3.jpg"
@@ -13,7 +11,6 @@ import festival_anak2 from "../assets/festival_seni-anak_indoensia/festival_anak
 import festival_anak3 from "../assets/festival_seni-anak_indoensia/festival_anak3.jpg";
 import bukber1 from "../assets/buka_bersama/bukber1.jpg"
 import bukber2 from "../assets/buka_bersama/bukber2.jpg"
-import bukber3 from "../assets/buka_bersama/bukber3.jpg"
 import bukber4 from "../assets/buka_bersama/bukber4.jpg"
 import fotbar_murid from "../assets/fotbar/fotbar_murid.jpg"
 import KritikSaran from "../components/KritikdanSaran";

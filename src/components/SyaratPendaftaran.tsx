@@ -1,4 +1,3 @@
-import React from "react";
 import { User, Users, FileText, CheckCircle, HelpCircle, MessageSquare, CalendarDays } from "lucide-react";
 
 export const SyaratPendaftaran = () => {

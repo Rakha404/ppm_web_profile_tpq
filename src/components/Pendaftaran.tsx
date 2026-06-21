@@ -1,4 +1,3 @@
-import React from "react";
 import { QrCode, Phone, FileText, ArrowUpRight } from "lucide-react";
 
 export const JalurPendaftaran = () => {

@@ -19,7 +19,6 @@ import Profile from "./pages/Profile";
 /* PERBAIKAN 1: Pastikan kamu sudah membuat file halaman ini dan meng-import-nya dengan HURUF KAPITAL */
 import Pendidikan from "./pages/Pendidikan"; 
 import Pendaftaran from "./pages/Pendaftaran";
-import Galeri from "./pages/Galeri";
 import Kegiatan from "./pages/Kegiatan";
 import Kontak from "./pages/Kontak";
 
