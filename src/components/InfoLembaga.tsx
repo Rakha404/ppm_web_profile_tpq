@@ -1,4 +1,3 @@
-import React from "react";
 import { School, BookOpen, Users2, ShieldCheck, Sparkles } from "lucide-react";
 
 // Import foto-foto dokumentasi asli dari assets kamu

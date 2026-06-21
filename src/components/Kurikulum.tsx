@@ -1,4 +1,3 @@
-import React from "react";
 import { BookOpen, BookMarked, Heart, Sparkles } from "lucide-react";
 
 export const KurikulumFokus = () => {
