@@ -1,29 +1,35 @@
+import JalurPendaftaran from "../components/Pendaftaran"; // 1. Import komponen JalurPendaftaran
 import BigFoto from "../components/BigFoto";
-
-// 1. IMPORT FOTO DARI ASSETS KAMU KHA (Sesuaikan letak folder ../ nya ya)
-import fotogedung from "../assets/foto_gedung.jpg";
+import foto_gedung from "../assets/foto_gedung.jpg";
 import logo_tpq from "../assets/logo_tpq.png";
+import "aos/dist/aos.css";
+import SyaratPendaftaran from "../components/SyaratPendaftaran";
+import KritikSaran from "../components/KritikdanSaran";
 
 export const Pendaftaran = () => {
-  
-  // 2. Masukkan variabel hasil import tadi ke dalam array
-  const daftarFoto = [fotogedung, logo_tpq];
 
   return (
-    <div className="w-full">
-      {/* 3. Masukkan array ke properti customImages */}
-      <BigFoto 
-        subTitle="Penerimaan Santri Baru"
-        mainTitle="Informasi Pendaftaran"
-        boldTitle="Tahun Ajaran Baru"
-        motto="Mari Bergabung Bersama Kami"
-        customImages={daftarFoto} // <-- Dia murni render gambar dari folder assets lokarmu!
+    // Ditambahkan w-full dan overflow-hidden agar AOS tidak nge-bug/macet saat kalkulasi posisi halaman
+    <div className="w-full m-0 p-0 block overflow-hidden">
+
+
+      {/* 1. Banner Slider Paling Atas */}
+      <BigFoto
+        subTitle="PENERIMAAN SANTRI BARU"
+        mainTitle="MARI BERGABUNG BERSAMA KAMI"
+        boldTitle="DAFTAR SEKARANG "
+        motto="Langkah Awal Terbaik untuk Membimbing Putra-Putri Anda Menjadi Generasi yang Berilmu, Beradab, dan Berjiwa Qur'ani."
+        customImages={[foto_gedung, logo_tpq]}
       />
 
-      {/* Sisa Konten Halaman Pendaftaran Kamu... */}
-      <div className="p-8">
-         {/* Form pendaftaran dll */}
+      <SyaratPendaftaran />
+
+      {/* Komponen Utama Alur Pendaftaran dengan Animasi Fade Up */}
+      <div data-aos="fade-up" data-aos-delay="200" className="w-full">
+        <JalurPendaftaran />
       </div>
+
+
     </div>
   );
 };

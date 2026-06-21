@@ -23,7 +23,21 @@ import Galeri from "./pages/Galeri";
 import Kegiatan from "./pages/Kegiatan";
 import Kontak from "./pages/Kontak";
 
+import {useEffect} from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+
 function App() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durasi animasi (1000ms = 1 detik)
+      once: false,    // Set ke true kalau mau animasinya cuma jalan sekali pas di-scroll
+      easing: "ease-out-cubic", // Efek pergerakan animasi yang halus
+    });
+  }, []);
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -32,7 +46,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/pendidikan" element={<Pendidikan />} />
           <Route path="/pendaftaran" element={<Pendaftaran />} />
-          <Route path="/galeri" element={<Galeri />} />
           <Route path="/kegiatan" element={<Kegiatan />} />
           <Route path="/kontak" element={<Kontak />} />
         </Route>
