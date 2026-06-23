@@ -1,4 +1,4 @@
-import { User, Users, FileText, CheckCircle, HelpCircle, MessageSquare, CalendarDays } from "lucide-react";
+import { User, Users, FileText, CheckCircle, CalendarDays } from "lucide-react";
 
 export const SyaratPendaftaran = () => {
     const biodataSantri = [
@@ -50,7 +50,6 @@ export const SyaratPendaftaran = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-black text-slate-800 tracking-wide">1. Preview Isian Data</h3>
-                                    <p className="text-xs text-slate-400 font-medium">Informasi wajib pada form online</p>
                                 </div>
                             </div>
 
@@ -58,7 +57,7 @@ export const SyaratPendaftaran = () => {
                             <div className="space-y-3">
                                 <div className="flex items-center gap-2 text-xs font-black text-[#006432] tracking-wider uppercase">
                                     <User size={14} />
-                                    <span>Komponen Biodata Santri</span>
+                                    <span>Biodata Santri</span>
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                                     {biodataSantri.map((item, index) => (
@@ -74,7 +73,7 @@ export const SyaratPendaftaran = () => {
                             <div className="space-y-3 pt-2">
                                 <div className="flex items-center gap-2 text-xs font-black text-[#006432] tracking-wider uppercase">
                                     <Users size={14} />
-                                    <span>Komponen Data Orang Tua</span>
+                                    <span>Data Orang Tua</span>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     {dataOrangTua.map((item, index) => (
@@ -85,10 +84,6 @@ export const SyaratPendaftaran = () => {
                                     ))}
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest text-center pt-4 border-t border-slate-100/80">
-                            *Halaman ini hanya untuk kebutuhan pratinjau data
                         </div>
                     </div>
 
@@ -158,54 +153,11 @@ export const SyaratPendaftaran = () => {
                                 </div>
                             </div>
                         </div>
-
-                        {/* Bagian Bawah Kartu */}
-                        <div className="pt-4 border-t border-emerald-800/60 flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-emerald-300/50 relative z-10">
-                            <span>Sekretariat TPQ Raudlatul Ma'arif</span>
-                            <span className="text-amber-400 font-bold">Status: Fleksibel</span>
-                        </div>
                     </div>
 
                 </div>
 
-                {/* ================= BANNER BAWAH: INFORMASI LANJUTAN (UI UPGRADE) ================= */}
-                <div
-                    data-aos="fade-up"
-                    data-aos-delay="500"
-                    className="bg-gradient-to-br from-amber-50 via-white to-amber-50/40 border-2 border-amber-400 rounded-[2rem] p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 shadow-md shadow-amber-500/5 relative overflow-hidden max-w-6xl mx-auto group hover:border-[#006432] transition-all duration-300"
-                >
-                    {/* Ornamen Kilau Dekoratif di Latar Belakang */}
-                    <div className="absolute -right-8 -bottom-8 w-24 h-24 bg-amber-200/30 rounded-full blur-xl pointer-events-none group-hover:bg-emerald-200/20 transition-colors duration-300" />
-
-                    <div className="flex items-start md:items-center gap-4 relative z-10">
-                        {/* Wadah Ikon dengan Efek Ring Ganda */}
-                        <div className="p-3.5 bg-amber-500 text-white rounded-2xl shrink-0 shadow-md shadow-amber-500/20 ring-4 ring-amber-100 animate-pulse">
-                            <HelpCircle size={24} className="stroke-[2.5]" />
-                        </div>
-
-                        <div className="space-y-1">
-                            <div className="flex items-center gap-2">
-                                <span className="bg-amber-500 text-white text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md">
-                                    PENTING
-                                </span>
-                                <h4 className="text-sm font-black text-slate-800 tracking-wide uppercase">
-                                    Butuh Panduan Tambahan atau Mengalami Kendala?
-                                </h4>
-                            </div>
-                            <p className="text-slate-600 text-xs font-semibold leading-relaxed max-w-3xl">
-                                Silakan tanyakan langsung mengenai alur masuk atau teknis administrasi ke pengurus pendaftaran kami melalui scan <span className="font-extrabold text-[#006432] underline decoration-emerald-600/30">QR Code Jalur Pendaftaran</span> di atas atau klik tombol <span className="font-extrabold text-[#006432] underline decoration-emerald-600/30">WhatsApp</span> di atas.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Tombol Status Badge yang Lebih Hidup */}
-                    <div className="flex items-center gap-2 bg-[#006432] border border-emerald-700 px-4 py-2.5 rounded-xl shrink-0 text-[11px] font-black text-white uppercase shadow-sm select-none self-end md:self-auto tracking-wider transition-transform duration-300 group-hover:scale-105">
-                        <span className="w-2 h-2 bg-emerald-400 rounded-full animate-ping" />
-                        <MessageSquare size={14} className="stroke-[2.5]" />
-                        <span>Hubungi CS</span>
-                    </div>
-                </div>
-
+                
             </div>
         </section>
     );
