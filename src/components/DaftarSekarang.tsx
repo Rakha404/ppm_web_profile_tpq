@@ -74,7 +74,7 @@ export const DaftarSekarang: React.FC<DaftarSekarangProps> = ({ onNavigateToRegi
               </h2>
               
               <p className="text-emerald-50/90 text-xs md:text-sm font-semibold leading-relaxed drop-shadow-xs">
-                Mari bimbing putra-putri Anda untuk mendapatkan fondasi ilmu agama, adab, dan hafalan Al-Qur'an yang kuat bersama TPQ & MDTA Awaliyah Raudlatul Ma'arif An-Nahdliyah. Kuota pendaftaran terbatas untuk setiap kelasnya.
+                Mari bimbing putra-putri Anda untuk mendapatkan fondasi ilmu agama, adab, dan hafalan Al-Qur'an yang kuat bersama Taman Pendidikan Al-Qur'an Raudlatul Ma'arif An-Nahdliyah. Kuota pendaftaran terbatas untuk setiap kelasnya.
               </p>
             </div>
 

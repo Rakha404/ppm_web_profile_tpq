@@ -34,7 +34,7 @@ export const KritikSaran = () => {
                 Membangun
               </h3>
               <p className="text-emerald-100/80 text-xs md:text-sm leading-relaxed font-medium">
-                Setiap masukan, kritik, maupun saran dari Wali Murid dan Masyarakat sangat berharga bagi peningkatan mutu pendidikan di TPQ & MDTA Raudlatul Ma'arif.
+                Setiap masukan, kritik, maupun saran dari Wali Murid dan Masyarakat sangat berharga bagi peningkatan mutu pendidikan di Taman Pendidikan Al-Qur'an Raudlatul Ma'arif.
               </p>
             </div>
           </div>

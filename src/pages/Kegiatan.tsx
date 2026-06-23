@@ -23,7 +23,7 @@ export const Kegiatan = () => {
       {/* (Opsional) Pasang Banner atas khusus halaman Galeri */}
       <BigFoto
         subTitle="DOKUMENTASI KEGIATAN"
-        mainTitle="TPQ & MDTA RAUDLATUL MA'ARIF AN-NAHDLIYAH"
+        mainTitle="TPQ RAUDLATUL MA'ARIF AN-NAHDLIYAH"
         boldTitle=""
         motto="Mengukir Cerita Indah dan Ukhuwah dalam Setiap Langkah Pembelajaran Santri"
         customImages={[wisata_religi_6, fotbar_murid]}

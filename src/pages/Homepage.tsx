@@ -16,7 +16,7 @@ export const Homepage = () => {
       <BigFoto
         subTitle="SELAMAT DATANG DI"
         mainTitle="RAUDLATUL MA'ARIF AN-NAHDLIYAH"
-        boldTitle="TPQ MDTA "
+        boldTitle="Taman Pendidikan Al-Qur'an"
         motto="Membentuk Generasi Berakhlak Mulia, Cerdas, dan Berjiwa Qur'ani Sejak Dini"
         customImages={[foto_gedung, foto_guru, foto_gurudanmurid]}
       />
@@ -29,7 +29,7 @@ export const Homepage = () => {
           titleH1="Sejarah Singkat Berdirinya Lembaga"
           titleH2="Mencetak Generasi Qur'ani Sejak Dini"
           paragraphs={[
-            "Lembaga Raudlatul Ma'arif didirikan atas dasar kepedulian para tokoh agama dan masyarakat akan pentingnya pendidikan Al-Qur'an dan akhlak bagi generasi muda. Berawal dari majelis taklim kecil, kini lembaga ini telah berkembang menjadi pusat pendidikan TPQ & MDTA yang terpercaya.",
+            "Lembaga Raudlatul Ma'arif didirikan atas dasar kepedulian para tokoh agama dan masyarakat akan pentingnya pendidikan Al-Qur'an dan akhlak bagi generasi muda. Berawal dari majelis taklim kecil, kini lembaga ini telah berkembang menjadi pusat pendidikan TPQ yang terpercaya.",
             "Kami terus berbenah meningkatkan kualitas pengajaran, sarana prasarana, serta pemantapan metode tahsin agar para santri tidak hanya lancar membaca, namun juga menjiwai nilai-nilai Al-Qur'an dalam kehidupan sehari-hari."
           ]}
           pointsTitle="Tujuan Utama Pembelajaran Kami:"
@@ -58,8 +58,6 @@ export const Homepage = () => {
       <div data-aos="fade-up">
         <KritikdanSaran />
       </div>
-
-
     </div>
   );
 };
