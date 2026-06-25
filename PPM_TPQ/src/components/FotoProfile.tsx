@@ -6,15 +6,15 @@ interface FotoProfileProps {
   photos: any[];         // Array file foto dari assets
 }
 
-export const FotoProfile: React.FC<FotoProfileProps> = ({ 
-  title, 
+export const FotoProfile: React.FC<FotoProfileProps> = ({
+  title,
   subTitle,
-  photos 
+  photos
 }) => {
   return (
     <section className="w-full bg-white py-12 px-6 md:px-12 font-sans select-none overflow-hidden">
       <div className="max-w-6xl mx-auto space-y-10">
-        
+
         {/* HEADER UTAMA (Hanya muncul jika title diisi) */}
         {title && (
           <div className="text-center flex flex-col items-center" data-aos="fade-down" data-aos-duration="1000">
@@ -31,7 +31,7 @@ export const FotoProfile: React.FC<FotoProfileProps> = ({
           <div className="relative flex items-center justify-center py-4" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800">
             {/* Garis Aksen Oranye/Kuning di Latar Belakang */}
             <div className="absolute left-0 right-0 h-[2px] bg-yellow-300 rounded-full" />
-            
+
             {/* Kapsul Hijau */}
             <div className="relative z-10 bg-[#006432] text-white px-6 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide shadow-sm max-w-[90%] text-center">
               {subTitle}
@@ -42,18 +42,19 @@ export const FotoProfile: React.FC<FotoProfileProps> = ({
         {/* GRID FOTO (Dengan Animasi Muncul Berurutan Satu per Satu + Lazy Loading) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-2">
           {photos.map((fotoUrl, index) => {
-            const delayAnimasi = (index % 3 + 1) * 100; 
+            const delayAnimasi = (index % 3 + 1) * 100;
 
             return (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 data-aos="fade-up"
                 data-aos-delay={delayAnimasi}
                 data-aos-duration="700"
                 className="relative aspect-[4/4] sm:aspect-[3/4] rounded-[1.8rem] overflow-hidden shadow-md border border-slate-100 bg-slate-50 group hover:shadow-lg transition-all duration-300"
               >
                 <img
-                  src={fotoUrl}
+                  // Menggunakan .includes agar lebih aman mendeteksi path folder uploads backend
+                  src={fotoUrl.includes('/uploads') && !fotoUrl.startsWith('http') ? `http://localhost:5000${fotoUrl}` : fotoUrl}
                   alt={`Kegiatan ${title || "Galeri"} - ${index + 1}`}
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500 ease-in-out"
@@ -62,7 +63,7 @@ export const FotoProfile: React.FC<FotoProfileProps> = ({
             );
           })}
         </div>
-        
+
       </div>
     </section>
   );

@@ -9,7 +9,7 @@ export default function MainLayout () {
             <Header />
 
             {/* Konten tengah yang dinamis berganti sesuai halaman */}
-            <main className="w-full flex-grow p-0 m-0">
+            <main className="w-full grow p-0 m-0">
                 <Outlet /> 
             </main>
 

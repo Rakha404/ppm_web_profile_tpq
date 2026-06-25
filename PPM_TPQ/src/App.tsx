@@ -7,22 +7,18 @@ import LoginForm from "./pages/LoginForm";
 import RegisterForm from "./pages/RegisterForm";
 import DashboardIndex from "./pages/dashboard/DashboardIndex";
 import ProtectedRoute from "./routes/ProtectedRoute";
-import DashboardLayout from "./layouts/DashboardLayout";
-import CategoryIndex from "./pages/dashboard/category/CategoryIndex";
-import PembicaraIndex from "./pages/dashboard/pembicara/PembicaraIndex";
-import EventIndex from "./pages/dashboard/event/EventIndex";
-import CategoryCreate from "./pages/dashboard/category/CategoryCreate";
-import PembicaraCreate from "./pages/dashboard/pembicara/PembicaraCreate";
-import EventCreate from "./pages/dashboard/event/EventCreate";
 import Profile from "./pages/Profile";
+import EditKonten from "./pages/dashboard/EditKonten";
+import UploadGaleri from "./pages/dashboard/UploadGaleri";
+import DashboardLayout from "./layouts/DashboardLayout";
 
 /* PERBAIKAN 1: Pastikan kamu sudah membuat file halaman ini dan meng-import-nya dengan HURUF KAPITAL */
-import Pendidikan from "./pages/Pendidikan"; 
+import Pendidikan from "./pages/Pendidikan";
 import Pendaftaran from "./pages/Pendaftaran";
 import Kegiatan from "./pages/Kegiatan";
 import Kontak from "./pages/Kontak";
 
-import {useEffect} from "react";
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -36,7 +32,7 @@ function App() {
       easing: "ease-out-cubic", // Efek pergerakan animasi yang halus
     });
   }, []);
-  
+
   return (
     <BrowserRouter>
       <Routes>
@@ -54,15 +50,12 @@ function App() {
           <Route path="/register" element={<RegisterForm />} />
         </Route>
 
-        <Route element={<ProtectedRoute/>}>
-          <Route element={<DashboardLayout />} >
-            <Route path="/dashboard" element={<DashboardIndex/>} />
-            <Route path="/dashboard/category" element={<CategoryIndex />} />
-            <Route path="/dashboard/category/create" element={<CategoryCreate />} />
-            <Route path="/dashboard/pembicara" element={<PembicaraIndex />} />
-            <Route path="/dashboard/pembicara/create" element={<PembicaraCreate />} />
-            <Route path="/dashboard/event" element={<EventIndex />} />
-            <Route path="/dashboard/event/create" element={<EventCreate />} />
+        <Route element={<ProtectedRoute />}>
+          {/* Bungkus semua halaman dashboard di dalam DashboardLayout */}
+          <Route element={<DashboardLayout />}>
+            <Route path="/dashboard" element={<DashboardIndex />} />
+            <Route path="/dashboard/edit-konten" element={<EditKonten />} />
+            <Route path="/dashboard/upload-galeri" element={<UploadGaleri />} />
           </Route>
         </Route>
       </Routes>

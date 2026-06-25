@@ -1,74 +1,64 @@
-import { useEffect } from 'react';
-import { Users, GraduationCap, CheckCircle2 } from 'lucide-react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useState, useEffect } from "react";
+// Import foto default/bawaan lokal buat cadangan kalau database belum punya foto
+import defaultHero from "../assets/hero.png"; 
 
-export default function StatistikLembaga() {
+export const WelcomeSection = () => {
+  const [konten, setKonten] = useState({
+    hero_subtitle: "PENERIMAAN SANTRI BARU",
+    hero_title: "MARI BERGABUNG BERSAMA KAMI",
+    hero_bold_title: "DAFTAR SEKARANG",
+    hero_motto: "Langkah Awal Terbaik untuk Membimbing Putra-Putri Anda Menjadi Generasi yang Berilmu, Beradab, dan Berjiwa Qur'ani.",
+    hero_image_url: "" // Tambahkan tampungan URL foto dari MongoDB
+  });
+
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
+    fetch("http://localhost:5000/api/content")
+      .then((res) => res.json())
+      .then((resData) => {
+        if (resData.success && resData.data) {
+          setKonten(resData.data);
+        }
+      })
+      .catch((err) => console.log("Gagal mengambil data CMS:", err));
   }, []);
 
-  const stats = [
-    {
-      icon: <Users className="w-7 h-7 text-emerald-600" />,
-      count: "150+",
-      label: "Santri Aktif",
-      desc: "Generasi muda yang sedang menempuh pendidikan Al-Qur'an & Diniyah."
-    },
-    {
-      icon: <CheckCircle2 className="w-7 h-7 text-amber-500" />,
-      count: "12",
-      label: "Asatidzah",
-      desc: "Ustadz & Ustadzah kompeten yang tulus membimbing dengan metode terbaik."
-    },
-    {
-      icon: <GraduationCap className="w-7 h-7 text-emerald-600" />,
-      count: "500+",
-      label: "Alumni",
-      desc: "Telah berkiprah dan menerapkan ilmu keagamaan di masyarakat luas."
-    }
-  ];
-
   return (
-    <section className="w-full py-12 px-6 md:px-12 bg-white font-sans select-none overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        
-        {/* GRID KARTU STATISTIK TIMBUL */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((item, index) => (
-            <div 
-              key={index}
-              data-aos="fade-up"
-              data-aos-delay={index * 150}
-              className="bg-white border-2 border-slate-100 rounded-[2rem] p-8 shadow-[0_15px_30px_-5px_rgba(0,0,0,0.06),0_10px_15px_-5px_rgba(0,0,0,0.02)] hover:shadow-[0_25px_45px_-10px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center space-y-4"
-            >
-              {/* Icon Container */}
-              <div className="bg-slate-50 border border-slate-200/50 p-4 rounded-2xl shadow-inner inline-block">
-                {item.icon}
-              </div>
-              
-              {/* Angka & Label */}
-              <div className="space-y-1">
-                <h3 className="text-4xl font-black text-slate-800 tracking-tight">
-                  {item.count}
-                </h3>
-                <p className="text-sm font-extrabold text-[#006432] uppercase tracking-wider">
-                  {item.label}
-                </p>
-              </div>
-
-              {/* Garis Pembatas Kecil */}
-              <div className="w-12 h-1 bg-amber-400 rounded-full" />
-
-              {/* Deskripsi */}
-              <p className="text-xs text-slate-500 leading-relaxed font-medium">
-                {item.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-
+    <div className="relative min-h-[80vh] flex items-center justify-center bg-slate-900 text-white py-20 px-6 font-sans overflow-hidden">
+      
+      {/* KANAN/BACKGROUND: FOTO DINAMIS */}
+      <div className="absolute inset-0 z-0 opacity-40">
+        <img 
+          // Jika hero_image_url dari MongoDB ada, panggil URL server backend. 
+          // Jika kosong, pakai foto default lokal bawaan proyekmu.
+          src={konten.hero_image_url ? `http://localhost:5000${konten.hero_image_url}` : defaultHero} 
+          alt="TPQ Raudlatul Ma'arif" 
+          className="w-full h-full object-cover"
+        />
       </div>
-    </section>
+
+      {/* KIRI/KONTEN UTAMA */}
+      <div className="relative z-10 text-center max-w-4xl mx-auto space-y-4">
+        <span className="text-emerald-400 font-bold text-xs uppercase tracking-widest block">
+          {konten.hero_subtitle}
+        </span>
+        
+        <h1 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+          {konten.hero_title} <br />
+          <span className="text-emerald-500">{konten.hero_bold_title}</span>
+        </h1>
+        
+        <p className="text-slate-300 text-xs md:text-sm max-w-xl mx-auto leading-relaxed">
+          {konten.hero_motto}
+        </p>
+
+        <div className="pt-4">
+          <button className="bg-[#006432] hover:bg-emerald-800 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition-all shadow-lg cursor-pointer">
+            Mulai Pendaftaran
+          </button>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default WelcomeSection;

@@ -21,8 +21,6 @@ export const Homepage = () => {
         customImages={[foto_gedung, foto_guru, foto_gurudanmurid]}
       />
 
-      <WelcomeSection />
-
       {/* 4. Sejarah Singkat */}
       <div data-aos="fade-left">
         <ProfilTeksFull

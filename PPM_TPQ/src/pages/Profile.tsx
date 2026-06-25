@@ -14,11 +14,11 @@ export const Profile = () => {
   return (
     <div className="w-full m-0 p-0 block overflow-hidde">
       <BigFoto
-              subTitle="MENGENAL LEBIH DEKAT"
-              mainTitle="PROFILE RAUDLATUL MA'ARIF AN-NAHDLIYAH"
-              motto="Menjaga Tradisi Islami, Mewujudkan Generasi Beradab, dan Berjiwa Qur'ani Sejak Dini."
-              customImages={[foto_gedung, foto_guru, foto_gurudanmurid]}
-            />
+        subTitle="MENGENAL LEBIH DEKAT"
+        mainTitle="PROFILE RAUDLATUL MA'ARIF AN-NAHDLIYAH"
+        motto="Menjaga Tradisi Islami, Mewujudkan Generasi Beradab, dan Berjiwa Qur'ani Sejak Dini."
+        customImages={[foto_gedung, foto_guru, foto_gurudanmurid]}
+      />
 
       {/* 2. Profil Teks + Foto */}
       <div data-aos="fade-right">

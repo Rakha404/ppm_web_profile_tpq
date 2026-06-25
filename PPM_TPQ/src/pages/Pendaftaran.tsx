@@ -3,7 +3,7 @@ import BigFoto from "../components/BigFoto";
 import SyaratPendaftaran from "../components/SyaratPendaftaran";
 import FormPendaftaran from "../components/ui/FormPendaftaran";
 import { Landmark, ArrowDownCircle, Share2 } from "lucide-react"; // Icon penanda panduan
-import BunnerBantuan, { BannerBantuan } from "../components/Bantuan"
+import { BannerBantuan } from "../components/Bantuan"
 
 import foto_gedung from "../assets/foto_gedung.jpg";
 import logo_tpq from "../assets/logo_tpq.png";

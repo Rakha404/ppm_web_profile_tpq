@@ -1,26 +1,42 @@
-import BigFoto from "../components/BigFoto"; // Jika kamu mau pasang banner atas juga
-import FotoProfile from "../components/FotoProfile"; // Import komponen grid foto yang sudah dinamis
-import wisata_religi_1 from "../assets/wisata religi/wisata_religi_1.jpg"
-import wisata_religi_2 from "../assets/wisata religi/wisata_religi_2.jpg"
-import wisata_religi_3 from "../assets/wisata religi/wisata_religi_3.jpg"
-import wisata_religi_4 from "../assets/wisata religi/wisata_religi_4.jpg"
-import wisata_religi_5 from "../assets/wisata religi/wisata_religi_5.jpg"
-import wisata_religi_6 from "../assets/wisata religi/wisata_religi_6.jpg"
-import festival_anak1 from "../assets/festival_seni-anak_indoensia/festival_anak1.jpg";
-import festival_anak2 from "../assets/festival_seni-anak_indoensia/festival_anak2.jpg";
-import festival_anak3 from "../assets/festival_seni-anak_indoensia/festival_anak3.jpg";
-import bukber1 from "../assets/buka_bersama/bukber1.jpg"
-import bukber2 from "../assets/buka_bersama/bukber2.jpg"
-import bukber4 from "../assets/buka_bersama/bukber4.jpg"
-import fotbar_murid from "../assets/fotbar/fotbar_murid.jpg"
+import { useState, useEffect } from "react";
+import BigFoto from "../components/BigFoto";
+import FotoProfile from "../components/FotoProfile";
 import KritikSaran from "../components/KritikdanSaran";
 import DaftarSekarang from "../components/DaftarSekarang";
 
+// Foto backup/default lokal (buat cadangan banner atas kalau database kosong)
+import wisata_religi_6 from "../assets/wisata religi/wisata_religi_6.jpg";
+import fotbar_murid from "../assets/fotbar/fotbar_murid.jpg";
+
+// Siapkan interface untuk tipe data Galeri dari MongoDB
+interface AlbumGaleri {
+  _id: string;
+  title: string;
+  subTitle: string;
+  photos: string[];
+}
+
 export const Kegiatan = () => {
+  // 1. Siapkan state untuk menampung semua data album dari MongoDB
+  const [listGaleri, setListGaleri] = useState<AlbumGaleri[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // 2. Ambil data dari backend saat halaman Kegiatan dibuka
+  useEffect(() => {
+    fetch("http://localhost:5000/api/galeri")
+      .then((res) => res.json())
+      .then((resData) => {
+        if (resData.success && resData.data) {
+          setListGaleri(resData.data);
+        }
+      })
+      .catch((err) => console.error("Gagal mengambil galeri dari MongoDB:", err))
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <div className="w-full">
-      {/* (Opsional) Pasang Banner atas khusus halaman Galeri */}
+      {/* Banner Atas Halaman Kegiatan */}
       <BigFoto
         subTitle="DOKUMENTASI KEGIATAN"
         mainTitle="TPQ & MDTA RAUDLATUL MA'ARIF AN-NAHDLIYAH"
@@ -29,30 +45,30 @@ export const Kegiatan = () => {
         customImages={[wisata_religi_6, fotbar_murid]}
       />
 
-      <div data-aos="fade-up">
-        <FotoProfile
-          title="Galeri"
-          subTitle="Wisata Religi 2026"
-          photos={[wisata_religi_1, wisata_religi_6, wisata_religi_3, wisata_religi_4, wisata_religi_2, wisata_religi_5]}
-        />
-      </div>
+      {/* 3. LOOPING ALBUM DARI MONGODB */}
+      {loading ? (
+        <div className="text-center py-12 font-semibold text-slate-500 text-sm">
+          Memuat Galeri Kegiatan...
+        </div>
+      ) : listGaleri.length > 0 ? (
+        listGaleri.map((album, index) => (
+          <div key={album._id} data-aos="fade-up">
+            <FotoProfile
+              title={index === 0 ? album.title : undefined}
+              subTitle={album.subTitle}
+              // Kirim data mentah asli dari MongoDB apa adanya
+              photos={album.photos}
+            />
+          </div>
+        ))
+      ) : (
+        // Tampilan cadangan jika di MongoDB belum ada data album sama sekali
+        <div className="text-center py-12 font-semibold text-slate-400 text-xs">
+          Belum ada dokumentasi kegiatan yang di-publish.
+        </div>
+      )}
 
-      <div data-aos="fade-up">
-        <FotoProfile
-          subTitle="Festival Anak Seni Indonesia"
-          photos={[festival_anak1, festival_anak3, festival_anak2]}
-        />
-      </div>
-
-      <div data-aos="fade-up">
-        <FotoProfile
-          subTitle="Buka Puasa Bersama 2026"
-          photos={[bukber2, bukber1, bukber4]}
-        />
-      </div>
-
-
-
+      {/* Bagian Bawah Halaman */}
       <div>
         <DaftarSekarang
           onNavigateToRegister={() => window.location.href = '/pendaftaran'}
@@ -62,7 +78,6 @@ export const Kegiatan = () => {
       <div data-aos="fade-up">
         <KritikSaran />
       </div>
-
     </div>
   );
 };
