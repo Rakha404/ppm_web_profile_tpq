@@ -1,6 +1,6 @@
 import BigFoto from "../components/BigFoto";
 import KritikdanSaran from "../components/KritikdanSaran";
-import foto_gedung from "../assets/foto_gedung.jpg";
+import foto_gedung from "../assets/foto_gedung.jpeg";
 import { ProfilTeksFull } from "../components/TextFile";
 import DaftarSekarang from "../components/DaftarSekarang";
 import WelcomeSection from "../components/WelcomeSection";

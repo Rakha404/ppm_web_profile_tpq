@@ -80,7 +80,7 @@ export const Header = () => {
 
                             {/* Facebook */}
                             <a
-                                href="https://facebook.com/public/Raudlatul-Maarif-An-Nahdliyah"
+                                href="https://www.facebook.com/profile.php?id=61591482891232"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-amber-400 hover:scale-110 transition-all shrink-0"
@@ -93,7 +93,7 @@ export const Header = () => {
 
                             {/* Youtube - FIX 100%: Kode SVG dipulihkan jalurnya agar tidak terpotong lagi */}
                             <a
-                                href="https://youtube.com/results?search_query=Raudlatul+Maarif+An+Nahdliyah"
+                                href="https://www.youtube.com/channel/UCLxmZReDF6Z7vqOEHY6hCVw"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-amber-400 hover:scale-110 transition-all shrink-0"

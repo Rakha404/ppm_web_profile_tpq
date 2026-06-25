@@ -1,7 +1,7 @@
 import { School, BookOpen, Users2, ShieldCheck, Sparkles } from "lucide-react";
 
 // Import foto-foto dokumentasi asli dari assets kamu
-import foto_gedung from "../assets/foto_gedung.jpg";
+import foto_gedung from "../assets/foto_gedung.jpeg";
 import foto_kbm from "../assets/foto_kbm.jpeg";
 import foto_guru from "../assets/foto_guru.jpg"; // Ganti dengan foto guru jika sudah ada
 
@@ -90,12 +90,6 @@ export const InfoLembaga = () => {
                     <p className="text-slate-600 text-xs md:text-sm leading-relaxed text-justify font-medium">
                       {item.desc}
                     </p>
-                  </div>
-
-                  {/* Bagian Bawah Kartu: Info Status / Meta Tag */}
-                  <div className="flex items-center gap-2 pt-4 border-t border-slate-100 text-[10px] font-black uppercase text-slate-400 tracking-wider group-hover:text-emerald-800 transition-colors">
-                    <ShieldCheck size={14} className="text-emerald-600 shrink-0" />
-                    <span>{item.meta}</span>
                   </div>
                 </div>
 

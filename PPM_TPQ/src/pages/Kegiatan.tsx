@@ -26,7 +26,7 @@ export const Kegiatan = () => {
         mainTitle="TPQ RAUDLATUL MA'ARIF AN-NAHDLIYAH"
         boldTitle=""
         motto="Mengukir Cerita Indah dan Ukhuwah dalam Setiap Langkah Pembelajaran Santri"
-        customImages={[wisata_religi_6, fotbar_murid]}
+        customImages={[wisata_religi_6, fotbar_murid, bukber4]}
       />
 
       <div data-aos="fade-up">

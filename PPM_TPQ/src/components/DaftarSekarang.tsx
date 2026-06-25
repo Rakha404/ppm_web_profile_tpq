@@ -4,7 +4,7 @@ import { ArrowRight, GraduationCap, Sparkles } from "lucide-react";
 // 1. Import foto-foto kegiatan TPQ kamu dari folder assets
 // Silakan sesuaikan nama file-nya dengan gambar asli yang kamu punya di folder assets
 import foto_kbm from "../assets/foto_kbm.jpeg";
-import foro_gedung from "../assets/foto_gedung.jpg";
+import foro_gedung from "../assets/foto_gedung.jpeg";
 
 interface DaftarSekarangProps {
   onNavigateToRegister: () => void;

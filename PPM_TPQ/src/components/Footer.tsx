@@ -127,7 +127,7 @@ export const Footer = () => {
 
                             {/* Facebook Link Fallback */}
                             <a
-                                href="https://facebook.com/public/Raudlatul-Maarif-An-Nahdliyah"
+                                href="https://www.facebook.com/profile.php?id=61591482891232"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2.5 hover:text-white transition-all duration-300 hover:translate-x-1"
@@ -143,7 +143,7 @@ export const Footer = () => {
 
                             {/* Youtube Link Fallback */}
                             <a
-                                href="https://youtube.com/results?search_query=Raudlatul+Maarif+An+Nahdliyah"
+                                href="https://www.youtube.com/channel/UCLxmZReDF6Z7vqOEHY6hCVw"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2.5 hover:text-white transition-all duration-300 hover:translate-x-1"

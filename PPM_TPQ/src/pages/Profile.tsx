@@ -1,5 +1,5 @@
 import ProfileTeks from "../components/Text"
-import foto_gedung from "../assets/foto_gedung.jpg";
+import foto_gedung from "../assets/foto_gedung.jpeg";
 import logo_tpq from "../assets/logo_tpq.png";
 import BigFoto from "../components/BigFoto";
 import DaftarSekarang from "../components/DaftarSekarang";

@@ -80,10 +80,6 @@ export const KurikulumFokus = () => {
                     </p>
                   </div>
                 </div>
-
-                <div className="text-[9px] font-black text-slate-300 uppercase tracking-widest pt-8 self-end group-hover:text-[#006432]/30 transition-colors">
-                  Fokus 0{index + 1}
-                </div>
               </div>
             );
           })}
