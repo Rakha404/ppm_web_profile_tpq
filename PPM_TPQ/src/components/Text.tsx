@@ -1,14 +1,14 @@
 import React from "react";
 
-// Interface Props agar semua teks, list poin, posisi gambar, dan gambar assets bisa diatur manual
 interface ProfilTeksProps {
-  titleH1: string;       // Judul Hijau Besar (Contoh: PROFIL PENDIDIKAN...)
-  titleH2: string;       // Sub-judul Hijau Sedang (Contoh: RAUDLATUL MA'ARIF...)
-  paragraphs: string[];  // Array paragraf deskripsi
-  pointsTitle?: string;  // Judul untuk list poin (Opsional)
-  points?: { title: string; desc: string }[]; // Array berisi objek judul poin & deskripsinya (Opsional)
-  imageSrc?: any;        // Foto manual dari assets (Opsional)
-  imagePosition?: "left" | "right"; // Posisi gambar maunya di kiri atau di kanan teks
+  titleH1: string;       
+  titleH2: string;       
+  paragraphs: string[];  
+  pointsTitle?: string;  
+  points?: { title: string; desc: string }[]; 
+  imageSrc?: any;        
+  imagePosition?: "left" | "right"; 
+  isLogo?: boolean; // <-- Tambahan properti baru untuk membedakan LOGO vs FOTO
 }
 
 export const ProfilTeks: React.FC<ProfilTeksProps> = ({
@@ -18,65 +18,65 @@ export const ProfilTeks: React.FC<ProfilTeksProps> = ({
   pointsTitle,
   points,
   imageSrc,
-  imagePosition = "right", // Default gambar di sebelah kanan teks
+  imagePosition = "right", 
+  isLogo = false, // Secara default dianggap foto (false) jika tidak ditulis
 }) => {
-  // Menentukan arah animasi teks & gambar secara otomatis berdasarkan properti imagePosition
   const textAnimation = imagePosition === "right" ? "fade-right" : "fade-left";
   const imageAnimation = imagePosition === "right" ? "fade-left" : "fade-right";
 
   return (
-    <section className="w-full bg-white py-12 px-6 md:px-12 font-sans text-slate-800 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+    <section className="w-full bg-white py-16 px-6 md:px-12 font-sans text-slate-800 overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
-        {/* KONDISI: Jika ada gambar dan posisinya di KIRI */}
+        {/* KONDISI 1: JIKA GAMBAR DI SEBELAH KIRI */}
         {imageSrc && imagePosition === "left" && (
           <div 
-            className="w-full lg:w-1/2 shrink-0 max-h-[450px] rounded-[2rem] overflow-hidden shadow-md border border-slate-100 group"
+            className="w-full lg:w-5/12 flex justify-center items-center"
             data-aos={imageAnimation}
             data-aos-duration="1000"
           >
-            <img 
-              src={imageSrc} 
-              alt="Profil Dokumentasi" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-            />
+            <div 
+              className={`w-full max-w-[380px] rounded-[2.5rem] bg-slate-50/80 border border-slate-100 flex items-center justify-center shadow-[0_20px_40px_-15px_rgba(0,100,50,0.04)] transition-all duration-500 hover:scale-103 
+                ${isLogo ? "aspect-square p-8" : "aspect-[4/5] p-0 overflow-hidden"}`}
+            >
+              <img 
+                src={imageSrc} 
+                alt="Profil Gambar" 
+                className={`w-full h-full ${isLogo ? "object-contain filter drop-shadow-sm" : "object-cover"}`} 
+              />
+            </div>
           </div>
         )}
 
         {/* BLOK KONTEN TEKS */}
         <div 
-          className="flex-grow space-y-6"
+          className="w-full lg:flex-grow lg:w-7/12 space-y-6"
           data-aos={textAnimation}
           data-aos-duration="1000"
         >
-          {/* Header Judul (Sesuai mockup hijau tua tebal) */}
-          <div className="space-y-1">
-            <h1 className="text-2xl md:text-4xl font-extrabold text-[#006432] uppercase tracking-wide leading-tight">
+          <div className="space-y-2">
+            <h1 className="text-2xl md:text-4xl font-black text-[#006432] tracking-tight leading-tight">
               {titleH1}
             </h1>
-            <h2 className="text-md md:text-lg font-bold text-emerald-700 tracking-wider uppercase">
+            <h2 className="text-xs font-black text-emerald-700 tracking-widest uppercase block">
               {titleH2}
             </h2>
-            {/* Garis aksen oranye penanda estetik */}
-            <div className="h-[3px] w-16 bg-yellow-300 rounded-full mt-2" />
+            <div className="h-[3px] w-12 bg-yellow-400 rounded-full mt-3" />
           </div>
 
-          {/* Render Paragraf-paragraf secara dinamis */}
           <div className="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed text-justify font-medium">
             {paragraphs.map((para, index) => (
               <p key={index}>{para}</p>
             ))}
           </div>
 
-          {/* Render Poin-poin Berbulat jika dikirim lewat props */}
+          {/* List Poin */}
           {points && points.length > 0 && (
             <div className="space-y-3 pt-2">
               {pointsTitle && <h3 className="text-md md:text-lg font-bold text-slate-900">{pointsTitle}</h3>}
               <ul className="space-y-3 pl-5 list-disc text-slate-600 text-sm md:text-base">
                 {points.map((point, index) => {
-                  // Membuka delay bertahap khusus untuk baris list poin
                   const pointDelay = 200 + index * 100;
-                  
                   return (
                     <li 
                       key={index} 
@@ -96,18 +96,23 @@ export const ProfilTeks: React.FC<ProfilTeksProps> = ({
           )}
         </div>
 
-        {/* KONDISI: Jika ada gambar dan posisinya di KANAN */}
+        {/* KONDISI 2: JIKA GAMBAR DI SEBELAH KANAN */}
         {imageSrc && imagePosition === "right" && (
           <div 
-            className="w-full lg:w-1/2 shrink-0 max-h-[450px] rounded-[2rem] overflow-hidden shadow-md border border-slate-100 group"
+            className="w-full lg:w-5/12 flex justify-center items-center"
             data-aos={imageAnimation}
             data-aos-duration="1000"
           >
-            <img 
-              src={imageSrc} 
-              alt="Profil Dokumentasi" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-            />
+            <div 
+              className={`w-full max-w-[380px] rounded-[2.5rem] bg-slate-50/80 border border-slate-100 flex items-center justify-center shadow-[0_20px_40px_-15px_rgba(0,100,50,0.04)] transition-all duration-500 hover:scale-103 
+                ${isLogo ? "aspect-square p-8" : "aspect-[4/5] p-0 overflow-hidden"}`}
+            >
+              <img 
+                src={imageSrc} 
+                alt="Profil Gambar" 
+                className={`w-full h-full ${isLogo ? "object-contain filter drop-shadow-sm" : "object-cover"}`} 
+              />
+            </div>
           </div>
         )}
 

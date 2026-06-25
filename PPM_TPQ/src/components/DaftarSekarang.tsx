@@ -4,7 +4,7 @@ import { ArrowRight, GraduationCap, Sparkles } from "lucide-react";
 // 1. Import foto-foto kegiatan TPQ kamu dari folder assets
 // Silakan sesuaikan nama file-nya dengan gambar asli yang kamu punya di folder assets
 import foto_kbm from "../assets/foto_kbm.jpeg";
-import foro_gedung from "../assets/foto_gedung.jpg";
+import foro_gedung from "../assets/foto_gedung.jpeg";
 
 interface DaftarSekarangProps {
   onNavigateToRegister: () => void;
@@ -74,7 +74,7 @@ export const DaftarSekarang: React.FC<DaftarSekarangProps> = ({ onNavigateToRegi
               </h2>
               
               <p className="text-emerald-50/90 text-xs md:text-sm font-semibold leading-relaxed drop-shadow-xs">
-                Mari bimbing putra-putri Anda untuk mendapatkan fondasi ilmu agama, adab, dan hafalan Al-Qur'an yang kuat bersama TPQ & MDTA Awaliyah Raudlatul Ma'arif An-Nahdliyah. Kuota pendaftaran terbatas untuk setiap kelasnya.
+                Mari bimbing putra-putri Anda untuk mendapatkan fondasi ilmu agama, adab, dan hafalan Al-Qur'an yang kuat bersama Taman Pendidikan Al-Qur'an Raudlatul Ma'arif An-Nahdliyah. Kuota pendaftaran terbatas untuk setiap kelasnya.
               </p>
             </div>
 

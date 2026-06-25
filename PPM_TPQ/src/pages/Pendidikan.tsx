@@ -19,7 +19,7 @@ export const Pendidikan = () => {
       <BigFoto
         subTitle="MITRA PENDIDIKAN FORMAL"
         mainTitle="LAYANAN PENDIDIKAN & KURIKULUM"
-        boldTitle="TPQ MDTA "
+        boldTitle="Taman Pendidikan Al-Qur'an"
         motto="Menyempurnakan Pendidikan Anak dengan Fondasi Keagamaan yang Kuat, Sistematis, dan Berorientasi Akhlak."
         customImages={[foto_kbm, fotbar_guru, kbm3]}
       />
@@ -32,7 +32,7 @@ export const Pendidikan = () => {
           imageSrc={kbm2} // Foto pelengkap di sebelah teks
           imagePosition="right" // Foto di kanan, teks profil di kiri
           paragraphs={[
-            "Taman Pendidikan Al-Qur'an (TPQ) dan Madrasah Diniyah Takmiliyah Awaliyah (MDTA) Raudlatul Ma'arif An-Nahdliyah merupakan lembaga pendidikan non-formal berbasis Islam yang berkomitmen memperkuat pondasi keagamaan santri sejak usia dini.",
+            "Taman Pendidikan Al-Qur'an (TPQ) Raudlatul Ma'arif An-Nahdliyah merupakan lembaga pendidikan non-formal berbasis Islam yang berkomitmen memperkuat pondasi keagamaan santri sejak usia dini.",
             "Berlokasi di Kedokansayang, Kecamatan Tarub, kami hadir sebagai mitra dan pelengkap pendidikan formal anak dengan fokus utama pada pembelajaran baca-tulis Al-Qur'an secara tartil, penguasaan ilmu tajwid, serta penanaman adab akhlakul karimah.",
             "Seluruh materi diniyah dan pembiasaan ibadah praktis harian di lembaga kami diselenggarakan secara terbimbing dan sistematis, selaras dengan nilai-nilai luhur syariat Islam yang berhaluan Ahlussunnah wal Jama'ah An-Nahdliyah."
           ]}
