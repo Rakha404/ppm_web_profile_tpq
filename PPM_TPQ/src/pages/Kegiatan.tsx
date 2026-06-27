@@ -5,8 +5,6 @@ import KritikSaran from "../components/KritikdanSaran";
 import DaftarSekarang from "../components/DaftarSekarang";
 
 // Foto backup/default lokal (buat cadangan banner atas kalau database kosong)
-import wisata_religi_6 from "../assets/wisata religi/wisata_religi_6.jpg";
-import fotbar_murid from "../assets/fotbar/fotbar_murid.jpg";
 
 // Siapkan interface untuk tipe data Galeri dari MongoDB
 interface AlbumGaleri {
@@ -37,13 +35,7 @@ export const Kegiatan = () => {
   return (
     <div className="w-full">
       {/* Banner Atas Halaman Kegiatan */}
-      <BigFoto
-        subTitle="DOKUMENTASI KEGIATAN"
-        mainTitle="TPQ & MDTA RAUDLATUL MA'ARIF AN-NAHDLIYAH"
-        boldTitle=""
-        motto="Mengukir Cerita Indah dan Ukhuwah dalam Setiap Langkah Pembelajaran Santri"
-        customImages={[wisata_religi_6, fotbar_murid]}
-      />
+      <BigFoto pageKey="kegiatan" fallbackTitle="DOKUMENTASI KEGIATAN" />
 
       {/* 3. LOOPING ALBUM DARI MONGODB */}
       {loading ? (

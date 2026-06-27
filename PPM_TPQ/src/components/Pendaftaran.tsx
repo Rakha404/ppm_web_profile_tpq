@@ -1,10 +1,24 @@
+import { useState, useEffect } from "react";
 import { QrCode, Phone, ArrowUpRight } from "lucide-react";
 
 export const JalurPendaftaran = () => {
-  // Nomor tujuan WhatsApp Admin TPQ / MDTA Raudlatul Ma'arif
-  const LINK_WHATSAPP = "https://wa.me/6288802491985?text=Halo%20Admin%20TPQ,%20saya%20ingin%20bertanya%20mengenai%20pendaftaran%20santri%20baru";
-  
-  // URL API untuk generate QR Code tunggal otomatis (Warna Hijau Khhas TPQ)
+  // State nomor telepon yang ditarik secara dinamis dari database
+  const [nomorAdmin, setNomorAdmin] = useState("6288802491985");
+
+  useEffect(() => {
+    // Ambil nomor telepon dinamis dari settingan backend
+    fetch("http://localhost:5000/api/section-pendaftaran")
+      .then((res) => res.json())
+      .then((resData) => {
+        if (resData.success && resData.data && resData.data.nomor_wa) {
+          setNomorAdmin(resData.data.nomor_wa);
+        }
+      })
+      .catch((err) => console.error("Gagal memuat link kontak cadangan WhatsApp:", err));
+  }, []);
+
+  // 🔴 LOGIKA OTOMATIS: Link WA & QR Code mengikut string nomorAdmin dari MongoDB realtime!
+  const LINK_WHATSAPP = `https://wa.me/${nomorAdmin}?text=Halo%20Admin%20TPQ,%20saya%20ingin%20bertanya%20mengenai%20pendaftaran%20santri%20baru`;
   const QR_WA_URL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(LINK_WHATSAPP)}&color=006432`;
 
   const handleRedirect = (url: string) => {
@@ -58,7 +72,7 @@ export const JalurPendaftaran = () => {
             </button>
           </div>
 
-          {/* SISI KANAN: QR CODE TUNGGAL (5 KOLOM) */}
+          {/* SISI KAIAN: QR CODE TUNGGAL (5 KOLOM) */}
           <div className="md:col-span-5 bg-white border border-slate-200/70 rounded-3xl p-6 flex flex-col justify-between items-center text-center shadow-xs">
             <div className="space-y-1">
               <div className="flex items-center justify-center gap-2 text-[#006432]">
@@ -75,7 +89,6 @@ export const JalurPendaftaran = () => {
                 alt="QR Code WhatsApp Official TPQ"
                 className="w-full h-full object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-102"
               />
-              {/* Ornamen Frame Sudut Kamera di Atas QR */}
               <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-[#006432] rounded-tl-xs" />
               <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-[#006432] rounded-tr-xs" />
               <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-[#006432] rounded-bl-xs" />

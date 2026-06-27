@@ -1,56 +1,73 @@
+import React, { useState, useEffect } from "react";
 import BigFoto from "../components/BigFoto";
-import ProfileTeks from "../components/Text"; // <-- Kita panggil komponen teks dinamis di sini
-import KurikulumFokus from "../components/Kurikulum";
-import InfoLembaga from "../components/InfoLembaga";
+import ProfileTeks from "../components/ProfilTeks"; 
+import KurikulumFokus from "../components/Kurikulum"; 
+import InfoLembaga from "../components/InfoLembaga"; // Komponen Pilar Informasi Lingkungan
 import DaftarSekarang from "../components/DaftarSekarang";
-
-// Import Foto Assets
-import fotbar_guru from "../assets/fotbar/fotbar_guru.jpg";
-import kbm2 from "../assets/fotbar/kbm2.jpeg";
-import kbm3 from "../assets/fotbar/kbm3.jpeg";
-import foto_kbm from "../assets/foto_kbm.jpeg"
 import KritikSaran from "../components/KritikdanSaran";
 
+import kbm2 from "../assets/fotbar/kbm2.jpeg";
+
 export const Pendidikan = () => {
+  const [konten, setKonten] = useState({
+    titleH1: "Pendekatan Kurikulum",
+    titleH2: "Mitra Terbaik Pendidikan Formal Anak",
+    paragraphs: [] as string[],
+    imageSrc: "",
+    isLogo: false,
+    kurikulum_points: [] as any[],
+    // ➕ Tampung array pilar cards dari MongoDB
+    pilar_cards: [] as any[]
+  });
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/halaman-dinamis/pendidikan")
+      .then((res) => res.json())
+      .then((resData) => {
+        if (resData.success && resData.data) {
+          setKonten({
+            titleH1: resData.data.titleH1 || "Pendekatan Kurikulum",
+            titleH2: resData.data.titleH2 || "Mitra Terbaik Pendidikan Formal Anak",
+            paragraphs: resData.data.paragraphs || [],
+            imageSrc: resData.data.imageSrc || "",
+            isLogo: resData.data.isLogo || false,
+            kurikulum_points: resData.data.kurikulum_points || [],
+            // ➕ Tarik array dari response database
+            pilar_cards: resData.data.pilar_cards || []
+          });
+        }
+      })
+      .catch((err) => console.error("Gagal memuat data dinamis pendidikan:", err));
+  }, []);
+
+  const defaultParagraphs = [
+    "Taman Pendidikan Al-Qur'an (TPQ) Raudlatul Ma'arif An-Nahdliyah merupakan lembaga pendidikan non-formal berbasis Islam yang berkomitmen memperkuat pondasi keagamaan santri sejak usia dini.",
+    "Berlokasi di Kedokansayang, Kecamatan Tarub, kami hadir sebagai mitra dan pelengkap pendidikan formal anak dengan focus utama pada pembelajaran baca-tulis Al-Qur'an secara tartil, penguasaan ilmu tajwid, serta penanaman adab akhlakul karimah."
+  ];
+
   return (
-    <div className="w-full m-0 p-0 block overflow-hidde">
+    <div className="w-full m-0 p-0 block overflow-hidden">
 
-      {/* 1. BANNER SLIDER ATAS (Motto dibuat pendek agar SEAMLESS & tidak menutupi layar) */}
-      <BigFoto
-        subTitle="MITRA PENDIDIKAN FORMAL"
-        mainTitle="LAYANAN PENDIDIKAN & KURIKULUM"
-        boldTitle="Taman Pendidikan Al-Qur'an"
-        motto="Menyempurnakan Pendidikan Anak dengan Fondasi Keagamaan yang Kuat, Sistematis, dan Berorientasi Akhlak."
-        customImages={[foto_kbm, fotbar_guru, kbm3]}
-      />
+      <BigFoto pageKey="pendidikan" fallbackTitle="PENDIDIKAN JENJANG" />
 
-      {/* 2. JALUR DESKRIPSI UTAMA (Teks panjang dipindah ke sini agar rapi bersanding dengan foto) */}
       <div data-aos="fade-up">
         <ProfileTeks
-          titleH1="Pendekatan Kurikulum"
-          titleH2="Mitra Terbaik Pendidikan Formal Anak"
-          imageSrc={kbm2} // Foto pelengkap di sebelah teks
-          imagePosition="right" // Foto di kanan, teks profil di kiri
-          paragraphs={[
-            "Taman Pendidikan Al-Qur'an (TPQ) Raudlatul Ma'arif An-Nahdliyah merupakan lembaga pendidikan non-formal berbasis Islam yang berkomitmen memperkuat pondasi keagamaan santri sejak usia dini.",
-            "Berlokasi di Kedokansayang, Kecamatan Tarub, kami hadir sebagai mitra dan pelengkap pendidikan formal anak dengan fokus utama pada pembelajaran baca-tulis Al-Qur'an secara tartil, penguasaan ilmu tajwid, serta penanaman adab akhlakul karimah.",
-            "Seluruh materi diniyah dan pembiasaan ibadah praktis harian di lembaga kami diselenggarakan secara terbimbing dan sistematis, selaras dengan nilai-nilai luhur syariat Islam yang berhaluan Ahlussunnah wal Jama'ah An-Nahdliyah."
-          ]}
+          titleH1={konten.titleH1}
+          titleH2={konten.titleH2}
+          imageSrc={konten.imageSrc || kbm2} 
+          imagePosition="right" 
+          isLogo={konten.isLogo}
+          paragraphs={konten.paragraphs.length > 0 ? konten.paragraphs : defaultParagraphs}
         />
       </div>
 
-      {/* 3. FOKUS KURIKULUM */}
-      <KurikulumFokus />
+      <KurikulumFokus points={konten.kurikulum_points} />
 
-      {/* 4. INFO TIGA PILAR (Gedung, KBM, Guru) */}
-      <InfoLembaga />
+      {/* 4. INFO LINGKUNGAN PENDIDIKAN SEKARANG SUDAH DINAMIS MONGO REALTIME 🚀 */}
+      <InfoLembaga cards={konten.pilar_cards} />
 
-
-      {/* 5. CALL TO ACTION REGISTER */}
       <div>
-        <DaftarSekarang
-          onNavigateToRegister={() => window.location.href = '/pendaftaran'}
-        />
+        <DaftarSekarang onNavigateToRegister={() => window.location.href = '/pendaftaran'} />
       </div>
 
       <KritikSaran />

@@ -14,10 +14,7 @@ const PendaftaranSantriSchema = new mongoose.Schema({
   tanggal_lahir_orangtua: { type: Date, required: true },
   no_hp_orangtua: { type: String, required: true },
   pekerjaan_orangtua: { type: String, required: true },
-  alamat_orangtua: { type: String, required: true },
-
-  // Pengesahan / Tanda Tangan Digital
-  tanda_tangan_wali: { type: String, required: true }
+  alamat_orangtua: { type: String, required: true }
 }, { 
   timestamps: true // Otomatis membuat field createdAt dan updatedAt
 });

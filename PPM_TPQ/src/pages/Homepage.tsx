@@ -1,12 +1,8 @@
 import BigFoto from "../components/BigFoto";
 import KritikdanSaran from "../components/KritikdanSaran";
-import foto_gedung from "../assets/foto_gedung.jpeg";
-import { ProfilTeksFull } from "../components/TextFile";
+import { ProfilTeksFull } from "../components/ProfileTeksFull";
 import DaftarSekarang from "../components/DaftarSekarang";
-import WelcomeSection from "../components/WelcomeSection";
 import KataMutiara from "../components/KataMutiara";
-import foto_guru from "../assets/foto_guru.jpg"
-import foto_gurudanmurid from "../assets/foto_gurudanmurid.jpg"
 
 export const Homepage = () => {
   return (
@@ -14,38 +10,17 @@ export const Homepage = () => {
 
       {/* 1. Banner Slider Paling Atas */}
       <BigFoto
-        subTitle="SELAMAT DATANG DI"
-        mainTitle="RAUDLATUL MA'ARIF AN-NAHDLIYAH"
-        boldTitle="Taman Pendidikan Al-Qur'an"
-        motto="Membentuk Generasi Berakhlak Mulia, Cerdas, dan Berjiwa Qur'ani Sejak Dini"
-        customImages={[foto_gedung, foto_guru, foto_gurudanmurid]}
+        pageKey="homepage"
+        fallbackTitle="RAUDLATUL MA'ARIF AN-NAHDLIYAH"
       />
 
       {/* 4. Sejarah Singkat */}
       <div data-aos="fade-left">
-        <ProfilTeksFull
-          titleH1="Sejarah Singkat Berdirinya Lembaga"
-          titleH2="Mencetak Generasi Qur'ani Sejak Dini"
-          paragraphs={[
-            "Lembaga Raudlatul Ma'arif didirikan atas dasar kepedulian para tokoh agama dan masyarakat akan pentingnya pendidikan Al-Qur'an dan akhlak bagi generasi muda. Berawal dari majelis taklim kecil, kini lembaga ini telah berkembang menjadi pusat pendidikan TPQ yang terpercaya.",
-            "Kami terus berbenah meningkatkan kualitas pengajaran, sarana prasarana, serta pemantapan metode tahsin agar para santri tidak hanya lancar membaca, namun juga menjiwai nilai-nilai Al-Qur'an dalam kehidupan sehari-hari."
-          ]}
-          pointsTitle="Tujuan Utama Pembelajaran Kami:"
-          points={[
-            {
-              title: "Fasih",
-              desc: "Mampu melafalkan huruf-huruf hijaiyah sesuai makhorijul huruf dan kaidah ilmu tajwid."
-            },
-            {
-              title: "Berkarakter",
-              desc: "Menjadikan adab terhadap orang tua, guru, dan sesama teman sebagai cerminan utama santri."
-            }
-          ]}
-        />
+        <ProfilTeksFull />
       </div>
 
       {/* 5. Kartu Visi Misi Moto */}
-      
+
       <KataMutiara />
 
       <DaftarSekarang

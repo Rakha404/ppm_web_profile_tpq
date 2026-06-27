@@ -1,37 +1,51 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Clock, Phone } from 'lucide-react';
-// import BigFoto from '../components/BigFoto';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default function KontakPage() {
+  // ➕ State nomor telepon yang ditarik secara dinamis dari database MongoDB
+  const [nomorAdmin, setNomorAdmin] = useState("6288802491985");
+
   // Inisialisasi AOS biar animasinya aktif pas halaman dibuka
   useEffect(() => {
     AOS.init({
       duration: 800,
       once: true,
     });
+
+    // ➕ Ambil data nomor WA dinamis dari settingan backend database
+    fetch("http://localhost:5000/api/section-pendaftaran")
+      .then((res) => res.json())
+      .then((resData) => {
+        if (resData.success && resData.data && resData.data.nomor_wa) {
+          setNomorAdmin(resData.data.nomor_wa);
+        }
+      })
+      .catch((err) => console.error("Gagal memuat nomor kontak utama:", err));
   }, []);
 
-  // Nomor kontak asli TPQ 
-  const NOMOR_WA = "628819725510";
-  const LINK_WHATSAPP = `https://wa.me/${NOMOR_WA}?text=Assalamu'alaikum%20Admin%20Raudlatul%20Ma'arif,%20saya%20ingin%20bertanya%20mengenai...`;
-
-  // URL API Otomatis untuk generate QR Code WhatsApp
+  // 🔴 LOGIKA OTOMATIS: Link WA & QR Code mengikut string nomorAdmin dari MongoDB realtime!
+  const LINK_WHATSAPP = `https://wa.me/${nomorAdmin}?text=Assalamu'alaikum%20Admin%20Raudlatul%20Ma'arif,%20saya%20ingin%20bertanya%20mengenai...`;
   const QR_WA_URL = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(LINK_WHATSAPP)}&color=006432`;
 
+  // Fungsi pembantu untuk memformat tampilan teks nomor agar rapi (+62 8xx-xxxx-xxxx)
+  const formatTampilanNomor = (num: string) => {
+    if (num.startsWith("62")) {
+      return `+62 ${num.slice(2, 5)}-${num.slice(5, 9)}-${num.slice(9)}`;
+    }
+    return num;
+  };
+
   return (
-    /* BACKGROUND UTAMA TETAP PUTIH BERSIH SESUAI KEINGINAN*/
-    <div className="bg-white min-h-screen py-16 px-4 md:px-12 font-sans select-none overflow-hidden">
-      {/* 1. Header Banner Halaman (Gunakan BigFoto jika diperlukan) */}
-      {/* <BigFoto subTitle="HUBUNGI KAMI" mainTitle="Layanan Informasi Santri" motto="..." /> */}
+    /* BACKGROUND UTAMA TETAP PUTIH BERSIH SESUAI KEINGINAN */
+    <div className="bg-white min-h-screen py-24 px-4 md:px-12 font-sans select-none overflow-hidden">
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
 
         {/* KOLOM KIRI: KARTU TIMBUL (INFORMASI & WHATSAPP) */}
         <div
           data-aos="fade-right"
-          /* ⚡ EFEK TIMBUL: Menggunakan custom shadow tebal berlapis + border slate-200 tebal agar memisahkan diri dari background putih luar */
           className="bg-white border-2 border-slate-100 rounded-[2.5rem] p-6 md:p-10 shadow-[0_15px_30px_-5px_rgba(0,0,0,0.08),0_10px_20px_-5px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_40px_-10px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between space-y-8"
         >
           <div>
@@ -39,13 +53,13 @@ export default function KontakPage() {
               Respon Cepat
             </span>
             <h2 className="text-2xl font-black text-slate-800 mt-2 mb-4 tracking-wide">
-              Layanan Informasi & Pendaftaran
+              Layajan Informasi & Pendaftaran
             </h2>
             <p className="text-slate-600 mb-6 leading-relaxed text-sm font-medium text-justify">
               Silakan hubungi Layanan Administrasi Taman Pendidikan Al-Qur'an Raudlatul Ma'arif An-Nahdliyah untuk informasi pendaftaran santri baru, jadwal kegiatan pembelajaran, atau konsultasi administrasi lainnya. Kami siap melayani Anda.
             </p>
              
-            {/* ======================= INFO LIST MINIMALIS (ANTI-JAMET) ======================= */}
+            {/* ======================= INFO LIST MINIMALIS ======================= */}
             <div className="space-y-4 text-sm text-slate-600 border-t border-slate-100/80 pt-5">
               {/* Baris Jam Layanan */}
               <div className="flex items-center gap-3 py-0.5 group">
@@ -58,27 +72,27 @@ export default function KontakPage() {
                 </span>
               </div>
 
-              {/* Baris Nomor Kontak */}
+              {/* Baris Nomor Kontak Dinamis 🚀 */}
               <div className="flex items-center gap-3 py-0.5 group">
                 <div className="p-2 bg-amber-50 text-amber-700 rounded-lg border border-amber-100/50 transition-colors group-hover:bg-amber-500 group-hover:text-white">
                   <Phone size={16} className="stroke-[2.2]" />
                 </div>
                 <span className="font-bold text-slate-800">Nomor Kontak</span>
                 <a
-                  href="https://wa.me/6288802491985"
+                  href={LINK_WHATSAPP}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-emerald-700 hover:text-emerald-800 hover:underline ml-auto bg-emerald-50/60 border border-emerald-100 px-2.5 py-1 rounded-md text-xs transition-colors"
                 >
-                  +62 888-0249-1985
+                  {formatTampilanNomor(nomorAdmin)}
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Tombol Interaktif WhatsApp */}
+          {/* Tombol Interaktif WhatsApp Dinamis 🚀 */}
           <a
-            href="https://wa.me/6288802491985"
+            href={LINK_WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full bg-[#006432] hover:bg-emerald-950 text-white font-black py-4 px-6 rounded-xl text-xs md:text-sm uppercase tracking-wider flex items-center justify-center gap-3 shadow-[0_4px_12px_rgba(0,100,50,0.2)] hover:shadow-[0_6px_20px_rgba(0,100,50,0.3)] transition-all duration-300 hover:scale-[1.01] active:scale-99 cursor-pointer"
@@ -90,10 +104,9 @@ export default function KontakPage() {
           </a>
         </div>
 
-        {/* KOLOM KANAN: KARTU TIMBUL (AREA BARCODE) */}
+        {/* KOLOM KANAN: KARTU TIMBUL (AREA BARCODE DINAMIS 🚀) */}
         <div
           data-aos="fade-left"
-          /* ⚡ EFEK TIMBUL: Dipasangkan shadow berlapis yang sama, ketika di-hover kartu akan naik sedikit (-translate-y-1.5) memunculkan efek kedalaman 3D */
           className="bg-white border-2 border-slate-100 rounded-[2.5rem] p-6 md:p-10 shadow-[0_15px_30px_-5px_rgba(0,0,0,0.08),0_10px_20px_-5px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_40px_-10px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between items-center text-center space-y-6"
         >
           <div className="space-y-2 w-full">
@@ -113,7 +126,7 @@ export default function KontakPage() {
             <img
               src={QR_WA_URL}
               alt="Barcode WhatsApp Raudlatul Ma'arif"
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain mix-blend-multiply"
               loading="lazy"
             />
             {/* Ornamen Siku Pojok Hijau */}

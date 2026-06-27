@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import EditKonten from "./pages/dashboard/EditKonten";
 import UploadGaleri from "./pages/dashboard/UploadGaleri";
 import DashboardLayout from "./layouts/DashboardLayout";
+import EditBanner from "./pages/dashboard/EditBanner";
 
 /* PERBAIKAN 1: Pastikan kamu sudah membuat file halaman ini dan meng-import-nya dengan HURUF KAPITAL */
 import Pendidikan from "./pages/Pendidikan";
@@ -21,6 +22,11 @@ import Kontak from "./pages/Kontak";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import DataPendaftaran from "./pages/dashboard/DataPendaftaran";
+import EditSectionPendaftaran from "./pages/dashboard/EditSectionPendaftaran";
+import KelolaHalamanDinamis from "./pages/dashboard/KelolaHalamanDinamis";
+import DataKritikSaran from "./pages/dashboard/DataKritikSaran";
+import KelolaKontakHeader from "./pages/dashboard/KelolaKontakHeader";
 
 
 function App() {
@@ -56,6 +62,12 @@ function App() {
             <Route path="/dashboard" element={<DashboardIndex />} />
             <Route path="/dashboard/edit-konten" element={<EditKonten />} />
             <Route path="/dashboard/upload-galeri" element={<UploadGaleri />} />
+            <Route path="/dashboard/edit-banner" element={<EditBanner />} />
+            <Route path="/dashboard/pendaftaran" element={<DataPendaftaran />} />
+            <Route path="/dashboard/edit-section-pendaftaran" element={<EditSectionPendaftaran />} />
+            <Route path="/dashboard/kelola-halaman" element={<KelolaHalamanDinamis />} />
+            <Route path="/dashboard/kritik-saran" element={<DataKritikSaran />} />
+            <Route path="/dashboard/kelola-kontak" element={<KelolaKontakHeader />} />
           </Route>
         </Route>
       </Routes>

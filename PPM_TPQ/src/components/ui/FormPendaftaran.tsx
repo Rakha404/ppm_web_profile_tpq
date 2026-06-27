@@ -12,7 +12,6 @@ interface FormData {
   no_hp_orangtua: string;
   pekerjaan_orangtua: string;
   alamat_orangtua: string;
-  tanda_tangan_wali: string;
 }
 
 export const FormPendaftaran = () => {
@@ -28,13 +27,12 @@ export const FormPendaftaran = () => {
     no_hp_orangtua: "",
     pekerjaan_orangtua: "",
     alamat_orangtua: "",
-    tanda_tangan_wali: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
   
-  // State baru untuk mengontrol tampilan pop-up modal sukses
+  // State untuk mengontrol tampilan pop-up modal sukses
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [registeredName, setRegisteredName] = useState("");
 
@@ -68,7 +66,7 @@ export const FormPendaftaran = () => {
         // Munculkan pop-up sukses
         setShowSuccessModal(true);
         
-        // Reset isi formulir pendaftaran
+        // Reset isi formulir pendaftaran (Aman tanpa tanda_tangan_wali)
         setFormData({
           nama_lengkap_santri: "",
           tempat_lahir_santri: "",
@@ -81,7 +79,6 @@ export const FormPendaftaran = () => {
           no_hp_orangtua: "",
           pekerjaan_orangtua: "",
           alamat_orangtua: "",
-          tanda_tangan_wali: "",
         });
       } else {
         setMessage({ type: "error", text: data.error || "Gagal menyimpan pendaftaran." });
@@ -218,20 +215,16 @@ export const FormPendaftaran = () => {
           </div>
         </div>
 
-        {/* SECTION 3: PENGESAHAN */}
+        {/* SECTION 3: PENGESAHAN (HANYA PERNYATAAN TANPA INPUT REPOT) */}
         <div>
           <h3 className="text-lg font-semibold text-emerald-700 border-b pb-2 mb-4 flex items-center gap-2">
             <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">3</span>
             Pernyataan & Pengesahan
           </h3>
-          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-4">
+          <div className="bg-slate-50 p-5 rounded-xl border border-slate-200">
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed text-justify">
-              Dengan mengisi formulir ini, saya menyatakan bertanggung jawab penuh atas keaslian data yang diberikan dan bersedia mematuhi segala peraturan dan ketentuan akademik serta administrasi yang berlaku di lingkungan lembaga.
+              Dengan mengklik tombol kirim pendaftaran di bawah ini, saya selaku orang tua / wali dari calon santri menyatakan bertanggung jawab penuh atas keaslian data yang diberikan dan bersedia mematuhi segala peraturan yang berlaku di lingkungan lembaga madrasah.
             </p>
-          </div>
-          <div className="max-w-xs">
-            <label className="block text-sm font-medium text-slate-700 mb-1">Nama Terang Wali (Sebagai Tanda Tangan) <span className="text-rose-500">*</span></label>
-            <input type="text" name="tanda_tangan_wali" value={formData.tanda_tangan_wali} onChange={handleChange} required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition font-medium text-center italic tracking-wider bg-amber-50/50" placeholder="Ketik nama lengkap Anda" />
           </div>
         </div>
 
