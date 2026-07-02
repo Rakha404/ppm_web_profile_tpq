@@ -14,7 +14,7 @@ export const Profile = () => {
     imageSrc: "",
     isLogo: true,
     
-    // ➕ STATE TAMBAHAN UNTUK VISI MISI MOTO DARI MONGODB
+    // STATE TAMBAHAN UNTUK VISI MISI MOTO DARI MONGODB
     visi_text: "",
     misi_list: [] as string[],
     moto_list: [] as string[]
@@ -32,7 +32,7 @@ export const Profile = () => {
             imageSrc: resData.data.imageSrc || "",
             isLogo: resData.data.isLogo !== undefined ? resData.data.isLogo : true,
             
-            // ➕ AMBIL FIELD DARI BACKEND
+            // AMBIL FIELD DARI BACKEND
             visi_text: resData.data.visi_text || "",
             misi_list: resData.data.misi_list || [],
             moto_list: resData.data.moto_list || []
@@ -42,16 +42,11 @@ export const Profile = () => {
       .catch((err) => console.error("Gagal memuat data dinamis profil:", err));
   }, []);
 
-  const defaultParagraphs = [
-    "Raudlatul Ma'arif An-Nahdliyah hadir sebagai lembaga pendidikan keagamaan non-formal yang mengintegrasikan sistem pembelajaran Taman Pendidikan Al-Qur'an (TPQ). Berpusat di Tegal, kami berkomitmen menjadi mitra terbaik bagi orang tua dalam membangun fondasi akidah, ibadah, dan akhlakul karimah bagi putra-putri tercinta sejak usia dini.",
-    "Melalui kurikulum berbasis nilai Ahlussunnah wal Jama'ah An-Nahdliyah, kami berfokus pada metode membaca Al-Qur'an yang tartil and benar (Tahsin), pembiasaan hafalan surah pendek serta doa harian, hingga pendalaman ilmu syariat dasar. Didukung oleh lingkungan belajar yang interaktif, teduh, dan menyenangkan, kami siap menuntun para santri tumbuh menjadi generasi Qur'ani yang berwawasan luas, saleh-salihah, dan membawa keberkahan bagi masyarakat."
-  ];
-
   return (
     <div className="w-full m-0 p-0 block overflow-hidden">
       
       {/* 1. BANNER UTAMA ATAS */}
-      <BigFoto pageKey="profile" fallbackTitle="PROFIL LEMBAGA" />
+      <BigFoto pageKey="profile" fallbackTitle="PROFIL TPQ" />
 
       {/* 2. PROFIL TEKS + FOTO */}
       <div data-aos="fade-right">
@@ -61,11 +56,11 @@ export const Profile = () => {
           imageSrc={konten.imageSrc || logo_tpq} 
           imagePosition="right"
           isLogo={konten.isLogo} 
-          paragraphs={konten.paragraphs.length > 0 ? konten.paragraphs : defaultParagraphs}
+          paragraphs={konten.paragraphs.length > 0 ? konten.paragraphs : ["Belum ada konten teks profil yang tersedia."]}
         />
       </div>
 
-      {/* 3. VISI MISI DENGAN DATA DINAMIS DATABASE 🚀 */}
+      {/* 3. VISI MISI DENGAN DATA DINAMIS DATABASE */}
       <Visimisi 
         visi={konten.visi_text}
         misi={konten.misi_list}

@@ -90,7 +90,7 @@ export const EditKonten = () => {
     setParagraphs(paragraphs.filter((_, idx) => idx !== indexToRemove));
   };
 
-  // ➔ MANIPULASI GRUP UTAMA (Judul List Poin)
+  // MANIPULASI GRUP UTAMA (Judul List Poin)
   const handleGroupTitleChange = (gIndex: number, val: string) => {
     const updated = [...pointGroups];
     updated[gIndex].pointsTitle = val;
@@ -165,15 +165,15 @@ export const EditKonten = () => {
 
   return (
     <div className="p-6 max-w-3xl mx-auto bg-white rounded-2xl shadow-md mt-4 font-sans">
-      <h2 className="text-xl font-black text-slate-800 border-b pb-3 mb-4 uppercase">Pengaturan Konten Website (CMS)</h2>
+      <h2 className="text-xl font-black text-slate-800 border-b pb-3 mb-4 uppercase">Pengaturan Konten Beranda Website</h2>
       {message && <div className="p-3 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold mb-4">{message}</div>}
 
       <form onSubmit={handleSubmitAll} className="space-y-10">
 
-        {/* ================= COMPONENT 1: KELOLA PROFIL SEJARAH & BANYAK GRUP LIST POIN ================= */}
+        {/* COMPONENT 1: KELOLA PROFIL SEJARAH & BANYAK GRUP LIST POIN */}
         <div className="space-y-4 bg-slate-50/50 p-5 rounded-2xl border border-slate-100">
           <div className="flex justify-between items-center border-b pb-2">
-            <h3 className="text-sm font-bold text-[#006432] uppercase tracking-wider">➔ Kelola Profil & Grup List Poin</h3>
+            <h3 className="text-sm font-bold text-[#006432] uppercase tracking-wider">➔ Kelola Profil Sejarah & Grup List Poin</h3>
             <button type="button" onClick={handleAddGroup} className="text-[10px] font-black bg-[#006432] text-white px-2.5 py-1.5 rounded-lg hover:bg-emerald-950 uppercase cursor-pointer shadow-sm">
               + Tambah Judul Grup Baru
             </button>
@@ -246,7 +246,7 @@ export const EditKonten = () => {
           ))}
         </div>
 
-        {/* ================= COMPONENT 2 & 3: KATA MUTIARA HADITS & KRITIK SARAN ================= */}
+        {/* COMPONENT 2 & 3: KATA MUTIARA HADITS & KRITIK SARAN */}
         <div className="space-y-4 pt-4 border-t border-slate-100">
           <h3 className="text-sm font-bold text-emerald-700 uppercase tracking-wider">➔ Bagian Kutipan / Kata Mutiara Hadits</h3>
           <div className="bg-slate-50 p-4 rounded-xl border border-dashed border-slate-300 space-y-3">

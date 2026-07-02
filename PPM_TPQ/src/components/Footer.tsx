@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { MapPin, Phone, Clock, X, MessageSquare } from "lucide-react";
-// ➕ Import sekumpulan icon lengkap dari Lucide untuk kebutuhan render komponen dinamis lencana
+// Import sekumpulan icon lengkap dari Lucide untuk kebutuhan render komponen dinamis lencana
 import * as LucideIcons from "lucide-react"; 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -64,7 +64,7 @@ export const Footer = () => {
         <footer className="w-full bg-[#006432] text-white pt-16 pb-6 px-6 md:px-12 font-sans select-none overflow-hidden relative">
             <div className="max-w-7xl mx-auto space-y-12">
 
-                {/* ================= SECTION 1: KEUNGGULAN PENDIDIKAN (ATAS - SEKARANG DINAMIS FULL CRUD 🚀) ================= */}
+                {/* SECTION 1: KEUNGGULAN PENDIDIKAN (ATAS - SEKARANG DINAMIS FULL CRUD ) */}
                 <div
                     data-aos="fade-up"
                     className="text-center space-y-8 border-b border-emerald-700/50 pb-12"
@@ -90,7 +90,7 @@ export const Footer = () => {
                                         className="text-amber-400 transition-colors duration-300 group-hover:text-[#006432]" 
                                     />
                                 </div>
-                                <h4 className="font-extrabold text-sm md:text-base tracking-wide max-w-[220px] leading-snug transition-colors duration-300 group-hover:text-amber-300">
+                                <h4 className="font-extrabold text-sm md:text-base tracking-wide max-w-220px leading-snug transition-colors duration-300 group-hover:text-amber-300">
                                     {item.teks_judul}
                                 </h4>
                             </div>
@@ -98,7 +98,7 @@ export const Footer = () => {
                     </div>
                 </div>
 
-                {/* ================= SECTION 2: INFORMASI & MAPS (BAWAH) ================= */}
+                {/* SECTION 2: INFORMASI & MAPS (BAWAH) */}
                 <div
                     data-aos="fade-up"
                     className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 border-b border-emerald-700 pb-12"
@@ -241,14 +241,14 @@ export const Footer = () => {
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
                                 title="Peta Lokasi TPQ Raudlatul Ma'arif"
-                                className="transition-transform duration-700 group-hover:scale-105 grayscale-[15%] contrast-[105%] group-hover:grayscale-0"
+                                className="transition-transform duration-700 group-hover:scale-105 grayscale-15% contrast-105% group-hover:grayscale-0"
                             ></iframe>
                         </div>
                     </div>
 
                 </div>
 
-                {/* ================= SECTION 3: COPYRIGHT (BOTTOM) ================= */}
+                {/* SECTION 3: COPYRIGHT (BOTTOM)*/}
                 <div className="flex flex-col sm:flex-row justify-between items-center text-[11px] text-emerald-300/70 font-medium gap-2 pt-2 border-t border-emerald-700/30">
                     <p>© 2026 Raudlatul Ma'arif An-Nahdliyah. All Rights Reserved.</p>
                     <p className="transition-colors duration-300 hover:text-amber-400 cursor-default">Designed for Taman Pendidikan Al-Qur'an</p>
@@ -256,10 +256,10 @@ export const Footer = () => {
 
             </div>
 
-            {/* ======================= POPUP MODAL WHATSAPP DINAMIS ======================= */}
+            {/* POPUP MODAL WHATSAPP DINAMIS */}
             {isWaOpen && (
                 <div
-                    className="fixed inset-0 z-[9999] bg-slate-950/40 backdrop-blur-xs flex items-center justify-center px-4"
+                    className="fixed inset-0 z-9999 bg-slate-950/40 backdrop-blur-xs flex items-center justify-center px-4"
                     onClick={() => setIsWaOpen(false)}
                 >
                     <div

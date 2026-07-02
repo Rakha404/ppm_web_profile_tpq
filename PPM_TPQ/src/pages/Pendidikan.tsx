@@ -32,18 +32,13 @@ export const Pendidikan = () => {
             imageSrc: resData.data.imageSrc || "",
             isLogo: resData.data.isLogo || false,
             kurikulum_points: resData.data.kurikulum_points || [],
-            // ➕ Tarik array dari response database
+            // Tarik array dari response database
             pilar_cards: resData.data.pilar_cards || []
           });
         }
       })
       .catch((err) => console.error("Gagal memuat data dinamis pendidikan:", err));
   }, []);
-
-  const defaultParagraphs = [
-    "Taman Pendidikan Al-Qur'an (TPQ) Raudlatul Ma'arif An-Nahdliyah merupakan lembaga pendidikan non-formal berbasis Islam yang berkomitmen memperkuat pondasi keagamaan santri sejak usia dini.",
-    "Berlokasi di Kedokansayang, Kecamatan Tarub, kami hadir sebagai mitra dan pelengkap pendidikan formal anak dengan focus utama pada pembelajaran baca-tulis Al-Qur'an secara tartil, penguasaan ilmu tajwid, serta penanaman adab akhlakul karimah."
-  ];
 
   return (
     <div className="w-full m-0 p-0 block overflow-hidden">
@@ -57,7 +52,7 @@ export const Pendidikan = () => {
           imageSrc={konten.imageSrc || kbm2} 
           imagePosition="right" 
           isLogo={konten.isLogo}
-          paragraphs={konten.paragraphs.length > 0 ? konten.paragraphs : defaultParagraphs}
+          paragraphs={konten.paragraphs.length > 0 ? konten.paragraphs : ["Belum ada konten teks pendidikan yang tersedia."]}
         />
       </div>
 

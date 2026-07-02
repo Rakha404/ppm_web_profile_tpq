@@ -21,7 +21,7 @@ export const FotoProfile: React.FC<FotoProfileProps> = ({
             <h2 className="text-3xl md:text-5xl font-black text-[#006432] tracking-wider uppercase inline-block pb-2 relative">
               {title}
               {/* Garis Bawah Hijau Lebar */}
-              <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-yellow-300 rounded-full mx-auto w-[85%]" />
+              <div className="absolute bottom-0 left-0 right-0 h-3px bg-yellow-300 rounded-full mx-auto w-[85%]" />
             </h2>
           </div>
         )}
@@ -30,7 +30,7 @@ export const FotoProfile: React.FC<FotoProfileProps> = ({
         {subTitle && (
           <div className="relative flex items-center justify-center py-4" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800">
             {/* Garis Aksen Oranye/Kuning di Latar Belakang */}
-            <div className="absolute left-0 right-0 h-[2px] bg-yellow-300 rounded-full" />
+            <div className="absolute left-0 right-0 h-2px bg-yellow-300 rounded-full" />
 
             {/* Kapsul Hijau */}
             <div className="relative z-10 bg-[#006432] text-white px-6 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide shadow-sm max-w-[90%] text-center">
@@ -50,7 +50,7 @@ export const FotoProfile: React.FC<FotoProfileProps> = ({
                 data-aos="fade-up"
                 data-aos-delay={delayAnimasi}
                 data-aos-duration="700"
-                className="relative aspect-[4/4] sm:aspect-[3/4] rounded-[1.8rem] overflow-hidden shadow-md border border-slate-100 bg-slate-50 group hover:shadow-lg transition-all duration-300"
+                className="relative aspect-4/4 sm:aspect-3/4 rounded-[1.8rem] overflow-hidden shadow-md border border-slate-100 bg-slate-50 group hover:shadow-lg transition-all duration-300"
               >
                 <img
                   // Menggunakan .includes agar lebih aman mendeteksi path folder uploads backend

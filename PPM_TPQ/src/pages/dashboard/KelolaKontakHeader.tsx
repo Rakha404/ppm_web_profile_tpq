@@ -21,7 +21,7 @@ export const KelolaKontakHeader = () => {
   const [mapsRute, setMapsRute] = useState("");
   const [mapsIframe, setMapsIframe] = useState("");
 
-  // ➕ State Baru untuk Repeater Keunggulan Pendidikan
+  // State Baru untuk Repeater Keunggulan Pendidikan
   const [keunggulanList, setKeunggulanList] = useState<KeunggulanItem[]>([]);
 
   const [loading, setLoading] = useState(false);
@@ -119,7 +119,7 @@ export const KelolaKontakHeader = () => {
       <div className="flex items-center gap-2.5 border-b pb-3 mb-5">
         <Contact className="text-emerald-700" size={22} />
         <h2 className="text-xl font-black text-slate-800 uppercase tracking-wide">
-          📞 KELOLA KONTAK TOPBAR & ELEMENT FOOTER
+        KELOLA KONTAK TOPBAR & ELEMENT FOOTER
         </h2>
       </div>
 
@@ -154,7 +154,7 @@ export const KelolaKontakHeader = () => {
 
         {/* POPUP DUA TOMBOL CHAT */}
         <div className="space-y-4">
-          <h3 className="text-xs font-black text-amber-600 uppercase tracking-wider">➔ 2. Konfigurasi Modal Popup WhatsApp (Dua Tombol)</h3>
+          <h3 className="text-xs font-black text-emerald-800 uppercase tracking-wider">➔ 2. Konfigurasi Modal Popup WhatsApp (Dua Tombol)</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 border border-slate-200/70 rounded-2xl bg-slate-50/50 space-y-3">
               <span className="text-[10px] font-black uppercase text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">Tombol Atas (Admin 1)</span>
@@ -183,11 +183,11 @@ export const KelolaKontakHeader = () => {
 
         <hr className="border-slate-100" />
 
-        {/* ➕ SEKSYEN BARU REPEATER: KELOLA 3 LENCANA KEUNGGULAN DI FOOTER (BISA EDIT, HAPUS, TAMBAH) */}
+        {/* SEKSYEN BARU REPEATER: KELOLA 3 LENCANA KEUNGGULAN DI FOOTER (BISA EDIT, HAPUS, TAMBAH) */}
         <div className="space-y-4 pt-1 bg-slate-50/60 p-4 rounded-2xl border border-slate-200/60">
           <div className="flex justify-between items-center">
             <div>
-              <h3 className="text-xs font-black text-purple-800 uppercase tracking-wider">➔ 3. Manajemen Lencana Keunggulan Pendidikan</h3>
+              <h3 className="text-xs font-black text-emerald-800 uppercase tracking-wider">➔ 3. Manajemen Lencana Keunggulan Pendidikan</h3>
               <p className="text-[10px] text-slate-400 font-medium mt-0.5">Edit kalimat & ganti jenis lencana ikon yang nampil di atas footer utama.</p>
             </div>
             <button 
@@ -246,7 +246,7 @@ export const KelolaKontakHeader = () => {
 
         {/* MODUL PARAGRAF & GOOGLE MAPS */}
         <div className="space-y-4">
-          <h3 className="text-xs font-black text-blue-700 uppercase tracking-wider">➔ 4. Modul Keterangan Paragraf & Peta Lokasi Footer</h3>
+          <h3 className="text-xs font-black text-emerald-800 uppercase tracking-wider">➔ 4. Modul Keterangan Paragraf & Peta Lokasi Footer</h3>
           <div className="space-y-1">
             <label className="text-xs font-bold text-slate-500 uppercase">Isi Deskripsi Paragraf "Tentang Kami" Footer</label>
             <textarea value={tentangKami} onChange={(e) => setTentangKami(e.target.value)} required rows={3} className="w-full p-2.5 bg-white border rounded-lg text-xs font-semibold outline-none resize-none leading-relaxed" />

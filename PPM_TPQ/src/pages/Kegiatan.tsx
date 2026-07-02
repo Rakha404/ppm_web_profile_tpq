@@ -4,8 +4,6 @@ import FotoProfile from "../components/FotoProfile";
 import KritikSaran from "../components/KritikdanSaran";
 import DaftarSekarang from "../components/DaftarSekarang";
 
-// Foto backup/default lokal (buat cadangan banner atas kalau database kosong)
-
 // Siapkan interface untuk tipe data Galeri dari MongoDB
 interface AlbumGaleri {
   _id: string;

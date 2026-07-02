@@ -30,7 +30,7 @@ export default function AuthLayout() {
                             TPQ RAUDLATUL <br />
                             <span className="text-[#006432]">MA'ARIF</span>
                         </h1>
-                        <div className="w-12 h-[3px] bg-yellow-400 rounded-full mx-auto" />
+                        <div className="w-12 h-3px bg-yellow-400 rounded-full mx-auto" />
                         <p className="text-slate-400 text-xs font-medium max-w-xs mx-auto leading-relaxed pt-1">
                             Sistem Informasi Manajemen & Penerimaan Santri Baru Berbasis Aplikasi Web.
                         </p>

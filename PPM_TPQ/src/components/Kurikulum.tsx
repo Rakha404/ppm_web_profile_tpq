@@ -59,7 +59,7 @@ export const KurikulumFokus: React.FC<KurikulumFokusProps> = ({ points }) => {
           <h3 className="text-2xl md:text-4xl font-black text-[#006432] tracking-tight">
             Fokus Utama Program Pendidikan
           </h3>
-          <div className="h-[3px] w-12 bg-amber-400 rounded-full mx-auto mt-2" />
+          <div className="h-3px w-12 bg-amber-400 rounded-full mx-auto mt-2" />
         </div>
 
         {/* ================= GRID KARTU DINAMIS MONGO ================= */}
@@ -76,7 +76,7 @@ export const KurikulumFokus: React.FC<KurikulumFokusProps> = ({ points }) => {
                 data-aos="fade-up"
                 data-aos-delay={delay}
                 data-aos-duration="800"
-                className="bg-slate-50/60 border border-slate-200/60 rounded-[2.5rem] p-8 relative overflow-hidden flex flex-col justify-between group hover:shadow-[0_25px_50px_-20px_rgba(0,100,50,0.06)] hover:-translate-y-1.5 transition-all duration-500 bg-white"
+                className="bg-slate-[50/60] border border-slate-200/60 rounded-[2.5rem] p-8 relative overflow-hidden flex flex-col justify-between group hover:shadow-[0_25px_50px_-20px_rgba(0,100,50,0.06)] hover:-translate-y-1.5 transition-all duration-500 bg-white"
               >
                 <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#006432] to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 

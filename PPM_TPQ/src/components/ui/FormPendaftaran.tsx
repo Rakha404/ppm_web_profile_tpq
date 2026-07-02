@@ -93,7 +93,7 @@ export const FormPendaftaran = () => {
   return (
     <div className="max-w-4xl mx-auto my-6 p-6 sm:p-10 bg-white rounded-2xl shadow-xl border border-slate-100 relative">
       
-      {/* ================================= POP-UP MODAL SUKSES (TAILWIND) ================================= */}
+      {/* POP-UP MODAL SUKSES (TAILWIND) */}
       {showSuccessModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 select-none animate-fadeIn">
           {/* Lapisan Blur Latar Belakang (Backdrop) */}
@@ -132,7 +132,6 @@ export const FormPendaftaran = () => {
           </div>
         </div>
       )}
-      {/* ================================================================================================== */}
 
       <div className="text-center mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 tracking-tight">Formulir Pendaftaran Santri Baru</h2>

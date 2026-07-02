@@ -127,7 +127,7 @@ export const DataPendaftaran = () => {
                           rel="noreferrer" 
                           className="text-emerald-700 font-bold hover:underline flex items-center gap-1"
                         >
-                          📞 {santri.no_hp_orangtua}
+                        {santri.no_hp_orangtua}
                         </a>
                       ) : (
                         <span className="text-rose-500 font-bold italic block text-[11px]">⚠️ No. HP Kosong</span>

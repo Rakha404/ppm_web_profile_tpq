@@ -73,19 +73,19 @@ export const EditSectionPendaftaran = () => {
   return (
     <div className="p-6 max-w-3xl mx-auto bg-white rounded-2xl shadow-md mt-4 font-sans">
       <h2 className="text-xl font-black text-slate-800 border-b pb-3 mb-4 uppercase tracking-wide">
-        📢 KELOLA TEKS, KONTAK WA & GAMBAR PPDB BANNER
+        KELOLA TEKS, KONTAK WA & GAMBAR PPDB BANNER
       </h2>
       
       {message && <div className="p-3 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold mb-4">{message}</div>}
 
       <form onSubmit={handleSubmit} className="space-y-8">
         
-        {/* ================= SEKSYEN 1: PENGATURAN TEKS BANNER PPDB ================= */}
+        {/* SEKSYEN 1: PENGATURAN TEKS BANNER PPDB */}
         <div className="space-y-4">
           <h3 className="text-xs font-black text-emerald-800 uppercase tracking-wider">➔ 1. Teks Konten Utama Banner Front-Page</h3>
           
           <div className="space-y-1">
-            <label className="text-xs font-bold text-slate-500 uppercase">Judul Utama Call to Action</label>
+            <label className="text-xs font-bold text-slate-500 uppercase">Judul Utama</label>
             <input type="text" value={judulUtama} onChange={(e) => setJudulUtama(e.target.value)} required className="w-full p-2.5 bg-white border rounded-lg text-xs font-semibold outline-none focus:ring-1 focus:ring-emerald-600" />
           </div>
 
@@ -95,7 +95,7 @@ export const EditSectionPendaftaran = () => {
           </div>
         </div>
 
-        {/* ================= SEKSYEN 2: KELOLA MULTI-IMAGES BACKGROUND SLIDESHOW ================= */}
+        {/* SEKSYEN 2: KELOLA MULTI-IMAGES BACKGROUND SLIDESHOW */}
         <div className="space-y-4 pt-4 border-t border-slate-100">
           <h3 className="text-xs font-black text-emerald-800 uppercase tracking-wider">➔ 2. Manajemen Foto Dokumentasi Slideshow</h3>
           
@@ -128,10 +128,10 @@ export const EditSectionPendaftaran = () => {
           </div>
         </div>
 
-        {/* 🔴 Garis Pembatas Tegas (Sesuai mockup pembatas merah diganti border elegan) */}
+        {/* Garis Pembatas Tegas (Sesuai mockup pembatas merah diganti border elegan) */}
         <hr className="border-t-2 border-dashed border-slate-200 my-6" />
 
-        {/* ================= SEKSYEN 3: KHUSUS NOMOR HOTLINE WHATSAPP ADMIN (DIPISAH) ================= */}
+        {/* SEKSYEN 3: KHUSUS NOMOR HOTLINE WHATSAPP ADMIN (DIPISAH) */}
         <div className="bg-emerald-50/40 p-5 rounded-2xl border border-emerald-100/80 space-y-3">
           <div className="space-y-1">
             <h3 className="text-xs font-black text-amber-600 uppercase tracking-wider">➔ 3. Jalur Kontak Cadangan (WhatsApp Hotline)</h3>
@@ -154,7 +154,7 @@ export const EditSectionPendaftaran = () => {
           </div>
         </div>
 
-        {/* ================= TOMBOL SUBMIT ================= */}
+        {/* TOMBOL SUBMIT */}
         <button type="submit" disabled={loading} className="w-full bg-[#006432] hover:bg-emerald-950 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-all shadow-md cursor-pointer">
           {loading ? "Sedang Mengirim ke MongoDB..." : "Simpan Seluruh Perubahan Konten"}
         </button>

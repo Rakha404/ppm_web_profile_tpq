@@ -86,14 +86,14 @@ export const DataKritikSaran = () => {
           {listSaran.map((item) => (
             <div 
               key={item._id} 
-              className="bg-white border border-slate-200/80 rounded-[2rem] p-6 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white border border-slate-200/80 rounded-2rem p-6 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-4">
                 {/* Bagian Atas: Metadata Identitas */}
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
                   <div className="flex items-center gap-2 text-slate-700">
                     <User size={14} className="text-emerald-700 shrink-0" />
-                    <span className="text-xs font-black uppercase tracking-wide max-w-[160px] truncate">
+                    <span className="text-xs font-black uppercase tracking-wide max-w-160px truncate">
                       {item.nama_lengkap}
                     </span>
                   </div>

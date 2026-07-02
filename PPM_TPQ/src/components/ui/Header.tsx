@@ -17,7 +17,7 @@ import NavLink from "../Navlink";
 export const Header = () => {
     const [isWaOpen, setIsWaOpen] = useState(false);
 
-    // ➕ State menampung data kontak header dinamis dari MongoDB
+    // State menampung data kontak header dinamis dari MongoDB
     const [kontak, setKontak] = useState({
         nomor_topbar: "6288802491985",
         link_instagram: "https://www.instagram.com/tpq_rm.annahdliyah?igsh=MXFneWhiYTF4eTV4MQ==",
@@ -85,7 +85,7 @@ export const Header = () => {
                             </div>
                         </div>
 
-                        {/* Ikon Sosial Media Dinamis 🚀 */}
+                        {/* Ikon Sosial Media Dinamis */}
                         <div className="flex items-center justify-center gap-4 border-t sm:border-t-0 sm:border-l border-emerald-600/40 pt-2 sm:pt-0 sm:pl-4 w-full sm:w-auto">
                             {/* Instagram */}
                             <a
@@ -170,7 +170,7 @@ export const Header = () => {
                                 key={item.label}
                                 className="w-full sm:w-auto flex items-stretch justify-center rounded-2xl sm:border-0 sm:bg-transparent sm:shadow-none overflow-hidden"
                             >
-                                <div className="w-full text-center flex justify-center [&>*]:w-full [&>*]:py-3.5 sm:[&>*]:py-2 [&>*]:px-4">
+                                <div className="w-full text-center flex justify-center &>*:w-full &>*:py-3.5 sm:&>*:py-2 &>*:px-4">
                                     <NavLink
                                         label={item.label}
                                         href={item.href}
@@ -184,10 +184,10 @@ export const Header = () => {
                 </div>
             </div>
 
-            {/* ======================= POPUP MODAL WHATSAPP DINAMIS 🚀 ======================= */}
+            {/*  POPUP MODAL WHATSAPP DINAMIS */}
             {isWaOpen && (
                 <div
-                    className="fixed inset-0 z-[9999] bg-slate-950/40 backdrop-blur-xs flex items-center justify-center px-4"
+                    className="fixed inset-0 z-9999 bg-slate-950/40 backdrop-blur-xs flex items-center justify-center px-4"
                     onClick={() => setIsWaOpen(false)}
                 >
                     <div

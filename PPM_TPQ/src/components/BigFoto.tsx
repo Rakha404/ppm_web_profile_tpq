@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface BigFotoProps {
   pageKey: 'homepage' | 'profile' | 'pendidikan' | 'pendaftaran' | 'kegiatan';
-  fallbackTitle: string; // Judul cadangan sebelum data di database terisi
+  fallbackTitle: string; 
 }
 
 export const BigFoto: React.FC<BigFotoProps> = ({ pageKey, fallbackTitle }) => {
@@ -41,6 +41,7 @@ export const BigFoto: React.FC<BigFotoProps> = ({ pageKey, fallbackTitle }) => {
     return () => clearInterval(slideInterval);
   }, [currentIndex, konten.images.length]);
 
+  // Perbaikan penulisan sintaks tinggi kustom Tailwind (h-[400px] dan md:h-[550px])
   if (konten.images.length === 0) {
     return (
       <div className="w-full h-[400px] md:h-[550px] bg-emerald-950 flex flex-col items-center justify-center text-center px-4">

@@ -4,7 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default function KontakPage() {
-  // ➕ State nomor telepon yang ditarik secara dinamis dari database MongoDB
+  // State nomor telepon yang ditarik secara dinamis dari database MongoDB
   const [nomorAdmin, setNomorAdmin] = useState("6288802491985");
 
   // Inisialisasi AOS biar animasinya aktif pas halaman dibuka
@@ -14,7 +14,7 @@ export default function KontakPage() {
       once: true,
     });
 
-    // ➕ Ambil data nomor WA dinamis dari settingan backend database
+    // Ambil data nomor WA dinamis dari settingan backend database
     fetch("http://localhost:5000/api/section-pendaftaran")
       .then((res) => res.json())
       .then((resData) => {
@@ -25,7 +25,7 @@ export default function KontakPage() {
       .catch((err) => console.error("Gagal memuat nomor kontak utama:", err));
   }, []);
 
-  // 🔴 LOGIKA OTOMATIS: Link WA & QR Code mengikut string nomorAdmin dari MongoDB realtime!
+  // LOGIKA OTOMATIS: Link WA & QR Code mengikut string nomorAdmin dari MongoDB
   const LINK_WHATSAPP = `https://wa.me/${nomorAdmin}?text=Assalamu'alaikum%20Admin%20Raudlatul%20Ma'arif,%20saya%20ingin%20bertanya%20mengenai...`;
   const QR_WA_URL = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(LINK_WHATSAPP)}&color=006432`;
 
@@ -59,7 +59,7 @@ export default function KontakPage() {
               Silakan hubungi Layanan Administrasi Taman Pendidikan Al-Qur'an Raudlatul Ma'arif An-Nahdliyah untuk informasi pendaftaran santri baru, jadwal kegiatan pembelajaran, atau konsultasi administrasi lainnya. Kami siap melayani Anda.
             </p>
              
-            {/* ======================= INFO LIST MINIMALIS ======================= */}
+            {/* INFO LIST MINIMALIS */}
             <div className="space-y-4 text-sm text-slate-600 border-t border-slate-100/80 pt-5">
               {/* Baris Jam Layanan */}
               <div className="flex items-center gap-3 py-0.5 group">
@@ -90,7 +90,7 @@ export default function KontakPage() {
             </div>
           </div>
 
-          {/* Tombol Interaktif WhatsApp Dinamis 🚀 */}
+          {/* Tombol Interaktif WhatsApp Dinamis */}
           <a
             href={LINK_WHATSAPP}
             target="_blank"
@@ -104,7 +104,7 @@ export default function KontakPage() {
           </a>
         </div>
 
-        {/* KOLOM KANAN: KARTU TIMBUL (AREA BARCODE DINAMIS 🚀) */}
+        {/* KOLOM KANAN: KARTU TIMBUL (AREA BARCODE DINAMIS) */}
         <div
           data-aos="fade-left"
           className="bg-white border-2 border-slate-100 rounded-[2.5rem] p-6 md:p-10 shadow-[0_15px_30px_-5px_rgba(0,0,0,0.08),0_10px_20px_-5px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_40px_-10px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between items-center text-center space-y-6"

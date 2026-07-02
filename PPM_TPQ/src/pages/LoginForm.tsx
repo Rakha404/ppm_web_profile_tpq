@@ -44,7 +44,7 @@ export const LoginForm = () => {
         <div className="w-full">
             <form 
                 onSubmit={handleSubmit} 
-                className="p-8 bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-100 w-full space-y-5 transition-all"
+                className="p-8 bg-white rounded-2rem shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-100 w-full space-y-5 transition-all"
             >
                 <div className="space-y-1 text-center">
                     <h2 className="text-xl font-black text-slate-800 tracking-wide uppercase">
@@ -96,7 +96,7 @@ export const LoginForm = () => {
                 </div>
 
                 {/* TOMBOL KEMBALI KE BERANDA */}
-                <div className="text-center pt-1 border-t border-slate-100 pt-3">
+                <div className="text-center [pt-1] border-t border-slate-100 [pt-3]">
                     <Link 
                         to="/" 
                         className="text-[11px] font-bold text-slate-400 hover:text-emerald-700 transition-all uppercase tracking-wider inline-block"

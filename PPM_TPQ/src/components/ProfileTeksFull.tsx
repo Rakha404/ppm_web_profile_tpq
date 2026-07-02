@@ -28,7 +28,7 @@ export const ProfilTeksFull = () => {
         <div className="space-y-2 text-center flex flex-col items-center justify-center" data-aos="fade-down" data-aos-duration="1000">
           <h1 className="text-2xl md:text-4xl font-extrabold text-[#006432] uppercase tracking-wide leading-tight max-w-3xl">{data.titleH1}</h1>
           {data.titleH2 && <h2 className="text-sm md:text-base font-bold text-emerald-700 tracking-wider uppercase max-w-2xl">{data.titleH2}</h2>}
-          <div className="h-[3px] w-24 bg-yellow-300 rounded-full mt-2" />
+          <div className="h-3px w-24 bg-yellow-300 rounded-full mt-2" />
         </div>
 
         {/* PARAGRAF DESKRIPSI */}

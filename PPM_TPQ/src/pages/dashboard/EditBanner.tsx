@@ -84,11 +84,11 @@ export const EditBanner = () => {
       <div className="mb-6 space-y-1.5">
         <label className="text-xs font-bold text-slate-500">Pilih Halaman yang Ingin Dikelola:</label>
         <select value={pageKey} onChange={(e) => setPageKey(e.target.value)} className="w-full p-3 bg-slate-50 border rounded-xl text-xs font-bold uppercase text-slate-700 outline-none focus:ring-2 focus:ring-emerald-600">
-          <option value="homepage">🏠 Beranda (Home)</option>
-          <option value="profile">📖 Profil Lembaga</option>
-          <option value="pendidikan">🎓 Pendidikan</option>
-          <option value="pendaftaran">📝 Pendaftaran Santri</option>
-          <option value="kegiatan">📸 Dokumentasi Kegiatan</option>
+          <option value="homepage">Beranda</option>
+          <option value="profile">Profil</option>
+          <option value="pendidikan">Pendidikan</option>
+          <option value="pendaftaran">Pendaftaran Santri</option>
+          <option value="kegiatan">Dokumentasi Kegiatan</option>
         </select>
       </div>
 
@@ -120,7 +120,7 @@ export const EditBanner = () => {
 
         {/* INPUT FOTO BARU */}
         <div className="bg-slate-50 p-4 rounded-xl border border-dashed border-slate-300 space-y-2">
-          <label className="text-xs font-bold text-slate-600 block">➕ Tambah Foto Baru ke Carousel Banner Halaman ini</label>
+          <label className="text-xs font-bold text-slate-600 block">Tambah Foto Baru ke Carousel Banner Halaman ini</label>
           <input type="file" accept="image/*" multiple onChange={(e) => { if(e.target.files) setNewFiles(e.target.files); }} className="text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 cursor-pointer" />
           {newFiles && <p className="text-[10px] font-bold text-emerald-600">✓ {newFiles.length} foto tambahan siap di-upload</p>}
         </div>

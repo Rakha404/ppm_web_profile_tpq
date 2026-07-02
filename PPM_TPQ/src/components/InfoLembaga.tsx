@@ -40,7 +40,7 @@ export const InfoLembaga: React.FC<InfoLembagaProps> = ({ cards }) => {
 
   const finalCards = cards && cards.length > 0 ? cards : fallbackCards;
 
-  // 🔴 FUNGSI MEMETAKAN STRING DATABASE MENJADI ELEMEN IKON LUCIDE ASLI
+  // FUNGSI MEMETAKAN STRING DATABASE MENJADI ELEMEN IKON LUCIDE ASLI
   const renderPilarIcon = (type: string) => {
     switch (type) {
       case "school":
@@ -67,7 +67,7 @@ export const InfoLembaga: React.FC<InfoLembagaProps> = ({ cards }) => {
           <h2 className="text-2xl md:text-4xl font-black text-[#006432] tracking-tight leading-tight">
             Mengenal Lingkungan Pendidikan Kami
           </h2>
-          <div className="h-[3px] w-20 bg-[#FF9900] rounded-full mx-auto" />
+          <div className="h-3px w-20 bg-[#FF9900] rounded-full mx-auto" />
         </div>
 
         {/* GRID KARTU INFORMASI */}
@@ -84,7 +84,7 @@ export const InfoLembaga: React.FC<InfoLembagaProps> = ({ cards }) => {
                 className="bg-white border border-slate-200/60 rounded-[2.5rem] overflow-hidden shadow-md hover:shadow-2xl hover:border-emerald-100 flex flex-col justify-between group transition-all duration-300 transform hover:-translate-y-1.5"
               >
                 {/* Bagian Atas: Gambar Dokumentasi */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-emerald-950">
+                <div className="relative aspect-16/10 w-full overflow-hidden bg-emerald-950">
                   <img
                     src={item.image ? `http://localhost:5000${item.image}` : "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=600"}
                     alt={item.title}
@@ -92,7 +92,7 @@ export const InfoLembaga: React.FC<InfoLembagaProps> = ({ cards }) => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-90 group-hover:opacity-100"
                   />
                   
-                  {/* 🔴 BADGE IKON DINAMIS BERDASARKAN INPUTAN ADMIN MONGO */}
+                  {/* BADGE IKON DINAMIS BERDASARKAN INPUTAN ADMIN MONGO */}
                   <div className="absolute bottom-4 left-5 z-10 bg-gradient-to-br from-[#006432] to-emerald-900 border border-emerald-500/30 text-amber-400 p-3 rounded-2xl shadow-lg flex items-center justify-center transform group-hover:rotate-6 transition-all duration-300">
                     {renderPilarIcon(item.iconType)}
                   </div>

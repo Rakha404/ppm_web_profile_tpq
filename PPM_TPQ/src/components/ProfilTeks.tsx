@@ -36,7 +36,7 @@ export const ProfilTeks: React.FC<ProfilTeksProps> = ({
         {/* KONDISI 1: JIKA GAMBAR DI SEBELAH KIRI */}
         {formattedImage && imagePosition === "left" && (
           <div className="w-full lg:w-5/12 flex justify-center items-center" data-aos={imageAnimation} data-aos-duration="1000">
-            <div className={`w-full max-w-[380px] rounded-[2.5rem] bg-slate-50/80 border border-slate-100 flex items-center justify-center shadow-[0_20px_40px_-15px_rgba(0,100,50,0.04)] transition-all duration-500 hover:scale-103 ${isLogo ? "aspect-square p-8" : "aspect-[4/5] p-0 overflow-hidden"}`}>
+            <div className={`w-full max-w-380px rounded-[2.5rem] bg-slate-50/80 border border-slate-100 flex items-center justify-center shadow-[0_20px_40px_-15px_rgba(0,100,50,0.04)] transition-all duration-500 hover:scale-103 ${isLogo ? "aspect-square p-8" : "aspect-4/5 p-0 overflow-hidden"}`}>
               <img src={formattedImage} alt="Profil Gambar" className={`w-full h-full ${isLogo ? "object-contain filter drop-shadow-sm" : "object-cover"}`} />
             </div>
           </div>
@@ -47,7 +47,7 @@ export const ProfilTeks: React.FC<ProfilTeksProps> = ({
           <div className="space-y-2">
             <h1 className="text-2xl md:text-4xl font-black text-[#006432] tracking-tight leading-tight">{titleH1}</h1>
             <h2 className="text-xs font-black text-emerald-700 tracking-widest uppercase block">{titleH2}</h2>
-            <div className="h-[3px] w-12 bg-yellow-400 rounded-full mt-3" />
+            <div className="h-3px w-12 bg-yellow-400 rounded-full mt-3" />
           </div>
 
           <div className="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed text-justify font-medium">
@@ -75,7 +75,7 @@ export const ProfilTeks: React.FC<ProfilTeksProps> = ({
         {/* KONDISI 2: JIKA GAMBAR DI SEBELAH KANAN */}
         {formattedImage && imagePosition === "right" && (
           <div className="w-full lg:w-5/12 flex justify-center items-center" data-aos={imageAnimation} data-aos-duration="1000">
-            <div className={`w-full max-w-[380px] rounded-[2.5rem] bg-slate-50/80 border border-slate-100 flex items-center justify-center shadow-[0_20px_40px_-15px_rgba(0,100,50,0.04)] transition-all duration-500 hover:scale-103 ${isLogo ? "aspect-square p-8" : "aspect-[4/5] p-0 overflow-hidden"}`}>
+            <div className={`w-full max-w-380px rounded-[2.5rem] bg-slate-50/80 border border-slate-100 flex items-center justify-center shadow-[0_20px_40px_-15px_rgba(0,100,50,0.04)] transition-all duration-500 hover:scale-103 ${isLogo ? "aspect-square p-8" : "aspect-4/5 p-0 overflow-hidden"}`}>
               <img src={formattedImage} alt="Profil Gambar" className={`w-full h-full ${isLogo ? "object-contain filter drop-shadow-sm" : "object-cover"}`} />
             </div>
           </div>

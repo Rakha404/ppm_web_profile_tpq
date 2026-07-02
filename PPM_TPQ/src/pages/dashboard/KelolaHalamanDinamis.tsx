@@ -41,9 +41,9 @@ export const KelolaHalamanDinamis = () => {
     setMessage("");
     setSelectedFile(null);
     setPreviewUrl("");
-    
+
     const subPath = activeTab === "profil" ? "profil" : "pendidikan";
-    
+
     fetch(`http://localhost:5000/api/halaman-dinamis/${subPath}`)
       .then((res) => res.json())
       .then((resData) => {
@@ -53,7 +53,7 @@ export const KelolaHalamanDinamis = () => {
           setParagraphs(resData.data.paragraphs || []);
           setIsLogo(resData.data.isLogo || false);
           if (resData.data.imageSrc) setPreviewUrl(`http://localhost:5000${resData.data.imageSrc}`);
-          
+
           if (activeTab === "profil") {
             setVisiText(resData.data.visi_text || "");
             setMisiList(resData.data.misi_list || []);
@@ -158,7 +158,7 @@ export const KelolaHalamanDinamis = () => {
       } else {
         dataToSend.append("kurikulum_points", JSON.stringify(kurikulumPoints));
         dataToSend.append("pilar_cards", JSON.stringify(pilarCards));
-        
+
         pilarCards.forEach((card, idx) => {
           if (card.fileObject) {
             dataToSend.append(`pilar_image_${idx}`, card.fileObject);
@@ -190,15 +190,15 @@ export const KelolaHalamanDinamis = () => {
 
   return (
     <div className="p-6 max-w-3xl mx-auto bg-white rounded-2xl shadow-md mt-4 font-sans">
-      <h2 className="text-xl font-black text-slate-800 border-b pb-3 mb-4 uppercase">⚙️ Kelola Halaman Web Dinamis</h2>
-      
+      <h2 className="text-xl font-black text-slate-800 border-b pb-3 mb-4 uppercase">Kelola Halaman Profil dan Pendidikan</h2>
+
       {/* Tab Selector */}
       <div className="flex gap-2 mb-6 bg-slate-100 p-1 rounded-xl">
         <button type="button" onClick={() => setActiveTab("profil")} className={`w-1/2 py-2.5 text-xs font-bold uppercase tracking-wider rounded-lg transition-all cursor-pointer ${activeTab === "profil" ? "bg-[#006432] text-white shadow" : "text-slate-600 hover:bg-slate-200"}`}>
-          📁 Halaman Profil
+          Halaman Profil
         </button>
         <button type="button" onClick={() => setActiveTab("pendidikan")} className={`w-1/2 py-2.5 text-xs font-bold uppercase tracking-wider rounded-lg transition-all cursor-pointer ${activeTab === "pendidikan" ? "bg-[#006432] text-white shadow" : "text-slate-600 hover:bg-slate-200"}`}>
-          📚 Halaman Pendidikan
+          Halaman Pendidikan
         </button>
       </div>
 
@@ -236,7 +236,7 @@ export const KelolaHalamanDinamis = () => {
         {/* MODUL PROFIL */}
         {activeTab === "profil" && (
           <div className="space-y-6 pt-4 border-t border-dashed border-slate-200">
-            <h3 className="text-xs font-black text-[#006432] uppercase tracking-widest">📋 Modul Pengaturan Visi, Misi & Moto</h3>
+            <h3 className="text-xs font-black text-[#006432] uppercase tracking-widest">Modul Pengaturan Visi, Misi & Moto</h3>
             <div className="space-y-1">
               <label className="text-xs font-bold text-slate-500 uppercase">Isi Teks Visi Utama</label>
               <textarea value={visiText} onChange={(e) => setVisiText(e.target.value)} required rows={2} className="w-full p-2.5 border rounded-lg text-xs font-semibold outline-none resize-none" />
@@ -283,7 +283,7 @@ export const KelolaHalamanDinamis = () => {
           <>
             <div className="space-y-6 pt-4 border-t border-dashed border-slate-200">
               <div className="flex justify-between items-center">
-                <h3 className="text-xs font-black text-emerald-800 uppercase tracking-widest">🟢 Kelola Kartu Fokus Utama Kurikulum</h3>
+                <h3 className="text-xs font-black text-emerald-800 uppercase tracking-widest">Kelola Kartu Fokus Utama Kurikulum</h3>
                 <button type="button" onClick={handleAddKurikulumCard} className="text-[10px] font-black bg-emerald-700 text-white px-2.5 py-1.5 rounded-lg hover:bg-emerald-800 uppercase cursor-pointer">
                   + Tambah Kartu Baru
                 </button>
@@ -305,7 +305,7 @@ export const KelolaHalamanDinamis = () => {
               </div>
             </div>
 
-            {/* KELOLA PILAR LINGKUNGAN (DENGAN SELECT OPTION PILIHAN IKON 🔴) */}
+            {/* KELOLA PILAR LINGKUNGAN (DENGAN SELECT OPTION PILIHAN IKON) */}
             <div className="space-y-6 pt-6 border-t border-dashed border-slate-200">
               <div className="flex justify-between items-center">
                 <h3 className="text-xs font-black text-amber-600 uppercase tracking-widest">🏆 Kelola Profil Pilar Lingkungan Lembaga</h3>
@@ -331,12 +331,12 @@ export const KelolaHalamanDinamis = () => {
                         <label className="text-[10px] font-bold text-slate-500 uppercase">Judul Pilar</label>
                         <input type="text" value={card.title} onChange={(e) => handlePilarValueChange(idx, "title", e.target.value)} required className="w-full p-2 bg-white border rounded-lg text-xs font-bold outline-none" />
                       </div>
-                      
-                      {/* 🔴 MENU DROPDOWN PILIHAN IKON PILAR */}
+
+                      {/* MENU DROPDOWN PILIHAN IKON PILAR */}
                       <div className="space-y-1">
                         <label className="text-[10px] font-bold text-slate-500 uppercase block">Pilih Ikon Pilar</label>
-                        <select 
-                          value={card.iconType || "school"} 
+                        <select
+                          value={card.iconType || "school"}
                           onChange={(e) => handlePilarValueChange(idx, "iconType", e.target.value)}
                           className="w-full p-2 bg-white border border-slate-200 rounded-lg text-xs font-bold outline-none text-slate-700 focus:ring-1 focus:ring-emerald-600"
                         >
@@ -379,8 +379,13 @@ export const KelolaHalamanDinamis = () => {
           <div className="flex items-center justify-between">
             <label className="text-xs font-bold text-slate-600 uppercase">File Gambar Utama</label>
             <label className="flex items-center gap-2 text-xs font-bold text-slate-600 cursor-pointer select-none">
-              <input type="checkbox" checked={isLogo} onChange={(e) => setIsLogo(e.target.checked)} className="rounded text-emerald-600 focus:ring-emerald-500" />
-              Gunakan Format Sizing LOGO (Aspect Square)
+              <input
+                type="checkbox"
+                checked={isLogo}
+                onChange={(e) => setIsLogo(e.target.checked)}
+                className="rounded text-emerald-600 focus:ring-emerald-500"
+              />
+              Gunakan ukuran persegi (untuk logo)
             </label>
           </div>
           <input type="file" accept="image/*" onChange={(e) => { if (e.target.files?.[0]) { setSelectedFile(e.target.files[0]); setPreviewUrl(URL.createObjectURL(e.target.files[0])); } }} className="text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 cursor-pointer" />

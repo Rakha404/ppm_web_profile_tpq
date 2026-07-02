@@ -17,7 +17,7 @@ export const JalurPendaftaran = () => {
       .catch((err) => console.error("Gagal memuat link kontak cadangan WhatsApp:", err));
   }, []);
 
-  // 🔴 LOGIKA OTOMATIS: Link WA & QR Code mengikut string nomorAdmin dari MongoDB realtime!
+  // LOGIKA OTOMATIS: Link WA & QR Code mengikut string nomorAdmin dari MongoDB realtime!
   const LINK_WHATSAPP = `https://wa.me/${nomorAdmin}?text=Halo%20Admin%20TPQ,%20saya%20ingin%20bertanya%20mengenai%20pendaftaran%20santri%20baru`;
   const QR_WA_URL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(LINK_WHATSAPP)}&color=006432`;
 
@@ -95,7 +95,7 @@ export const JalurPendaftaran = () => {
               <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-[#006432] rounded-br-xs" />
             </div>
 
-            <p className="text-[10px] md:text-[11px] font-semibold text-slate-400 leading-normal max-w-[200px]">
+            <p className="text-[10px] md:text-[11px] font-semibold text-slate-400 leading-normal max-w-200px">
               Arahkan kamera HP Anda langsung ke gambar untuk diarahkan otomatis menuju chat admin.
             </p>
           </div>
