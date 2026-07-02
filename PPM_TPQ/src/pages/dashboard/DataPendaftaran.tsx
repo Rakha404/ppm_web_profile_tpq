@@ -22,7 +22,7 @@ export const DataPendaftaran = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/pendaftaran")
+    fetch("https://tpq-backend-api.vercel.app/api/pendaftaran")
       .then((res) => res.json())
       .then((resData) => {
         console.log("=== DATA DARi BACKEND ===", resData);

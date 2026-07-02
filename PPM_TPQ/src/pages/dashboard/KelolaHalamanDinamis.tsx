@@ -44,7 +44,7 @@ export const KelolaHalamanDinamis = () => {
 
     const subPath = activeTab === "profil" ? "profil" : "pendidikan";
 
-    fetch(`http://localhost:5000/api/halaman-dinamis/${subPath}`)
+    fetch(`https://tpq-backend-api.vercel.app/api/halaman-dinamis/${subPath}`)
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {
@@ -166,7 +166,7 @@ export const KelolaHalamanDinamis = () => {
         });
       }
 
-      const res = await fetch(`http://localhost:5000/api/halaman-dinamis/${subPath}`, {
+      const res = await fetch(`https://tpq-backend-api.vercel.app/api/halaman-dinamis/${subPath}`, {
         method: "PUT",
         body: dataToSend,
       });

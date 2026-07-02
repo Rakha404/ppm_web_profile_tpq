@@ -30,7 +30,7 @@ export const EditKonten = () => {
 
   useEffect(() => {
     // 1. Ambil data Content Dasar
-    fetch("http://localhost:5000/api/content")
+    fetch("https://tpq-backend-api.vercel.app/api/content")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {
@@ -45,7 +45,7 @@ export const EditKonten = () => {
       });
 
     // 2. Ambil data Profil Bertingkat
-    fetch("http://localhost:5000/api/profil-full")
+    fetch("https://tpq-backend-api.vercel.app/api/profil-full")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {
@@ -137,10 +137,10 @@ export const EditKonten = () => {
       const dataToSend = new FormData();
       Object.keys(formData).forEach((key) => dataToSend.append(key, (formData as any)[key]));
       if (quoteBg) dataToSend.append("quote_bg", quoteBg);
-      await fetch("http://localhost:5000/api/content/update", { method: "PUT", body: dataToSend });
+      await fetch("https://tpq-backend-api.vercel.app/api/content/update", { method: "PUT", body: dataToSend });
 
       // Kirim array berundak murni JSON
-      const resProfil = await fetch("http://localhost:5000/api/profil-full/update", {
+      const resProfil = await fetch("https://tpq-backend-api.vercel.app/api/profil-full/update", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -17,7 +17,7 @@ export default function KataMutiara() {
     AOS.init({ duration: 800, once: true });
 
     // Fetch data teks dan gambar dari backend
-    fetch("http://localhost:5000/api/content")
+    fetch("https://tpq-backend-api.vercel.app/api/content")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {

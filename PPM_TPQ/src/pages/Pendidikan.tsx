@@ -21,7 +21,7 @@ export const Pendidikan = () => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/halaman-dinamis/pendidikan")
+    fetch("https://tpq-backend-api.vercel.app/api/halaman-dinamis/pendidikan")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {

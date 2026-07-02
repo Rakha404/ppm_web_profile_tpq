@@ -6,7 +6,7 @@ export default function DashboardIndex() {
 
   useEffect(() => {
     // Mengambil total pendaftar santri dari backend untuk dipajang di halaman utama
-    fetch("http://localhost:5000/api/pendaftaran")
+    fetch("https://tpq-backend-api.vercel.app/api/pendaftaran")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {

@@ -14,7 +14,7 @@ export const DaftarSekarang: React.FC<DaftarSekarangProps> = ({ onNavigateToRegi
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/section-pendaftaran")
+    fetch("https://tpq-backend-api.vercel.app/api/section-pendaftaran")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {

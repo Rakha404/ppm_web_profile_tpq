@@ -40,7 +40,7 @@ export const KelolaKontakHeader = () => {
   ];
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/kontak-header")
+    fetch("https://tpq-backend-api.vercel.app/api/kontak-header")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {
@@ -84,7 +84,7 @@ export const KelolaKontakHeader = () => {
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/kontak-header/update", {
+      const res = await fetch("https://tpq-backend-api.vercel.app/api/kontak-header/update", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

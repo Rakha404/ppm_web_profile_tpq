@@ -50,7 +50,7 @@ export const FormPendaftaran = () => {
     setMessage({ type: "", text: "" });
 
     try {
-      const response = await fetch("http://localhost:5000/api/pendaftaran", {
+      const response = await fetch("https://tpq-backend-api.vercel.app/api/pendaftaran", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

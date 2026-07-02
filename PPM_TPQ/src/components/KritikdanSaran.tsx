@@ -23,7 +23,7 @@ export const KritikSaran = () => {
     setStatus({ type: "", text: "" });
 
     try {
-      const response = await fetch("http://localhost:5000/api/kritik-saran", {
+      const response = await fetch("https://tpq-backend-api.vercel.app/api/kritik-saran", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

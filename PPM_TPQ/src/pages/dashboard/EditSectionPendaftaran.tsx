@@ -12,7 +12,7 @@ export const EditSectionPendaftaran = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/section-pendaftaran")
+    fetch("https://tpq-backend-api.vercel.app/api/section-pendaftaran")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {
@@ -50,7 +50,7 @@ export const EditSectionPendaftaran = () => {
         }
       }
 
-      const res = await fetch("http://localhost:5000/api/section-pendaftaran/update", {
+      const res = await fetch("https://tpq-backend-api.vercel.app/api/section-pendaftaran/update", {
         method: "PUT",
         body: dataToSend,
       });

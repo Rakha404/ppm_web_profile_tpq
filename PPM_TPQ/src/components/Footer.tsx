@@ -43,7 +43,7 @@ export const Footer = () => {
     useEffect(() => {
         AOS.init({ duration: 800, once: true });
 
-        fetch("http://localhost:5000/api/kontak-header")
+        fetch("https://tpq-backend-api.vercel.app/api/kontak-header")
           .then((res) => res.json())
           .then((resData) => {
              if (resData.success && resData.data) {

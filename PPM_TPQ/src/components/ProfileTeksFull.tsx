@@ -12,7 +12,7 @@ export const ProfilTeksFull = () => {
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
-    fetch("http://localhost:5000/api/profil-full")
+    fetch("https://tpq-backend-api.vercel.app/api/profil-full")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) setData(resData.data);

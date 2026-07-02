@@ -12,7 +12,7 @@ export const EditBanner = () => {
   const loadBannerData = () => {
     setImagesToDelete([]);
     setNewFiles(null);
-    fetch(`http://localhost:5000/api/banner/${pageKey}`)
+    fetch(`https://tpq-backend-api.vercel.app/api/banner/${pageKey}`)
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {
@@ -58,7 +58,7 @@ export const EditBanner = () => {
         }
       }
 
-      const res = await fetch(`http://localhost:5000/api/banner/update/${pageKey}`, {
+      const res = await fetch(`https://tpq-backend-api.vercel.app/api/banner/update/${pageKey}`, {
         method: "PUT",
         body: dataToSend
       });

@@ -19,7 +19,7 @@ export const Kegiatan = () => {
 
   // 2. Ambil data dari backend saat halaman Kegiatan dibuka
   useEffect(() => {
-    fetch("http://localhost:5000/api/galeri")
+    fetch("https://tpq-backend-api.vercel.app/api/galeri")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {

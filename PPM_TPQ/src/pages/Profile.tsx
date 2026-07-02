@@ -21,7 +21,7 @@ export const Profile = () => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/halaman-dinamis/profil")
+    fetch("https://tpq-backend-api.vercel.app/api/halaman-dinamis/profil")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {

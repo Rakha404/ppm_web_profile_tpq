@@ -17,7 +17,7 @@ export const BigFoto: React.FC<BigFotoProps> = ({ pageKey, fallbackTitle }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/banner/${pageKey}`)
+    fetch(`https://tpq-backend-api.vercel.app/api/banner/${pageKey}`)
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {

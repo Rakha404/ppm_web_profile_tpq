@@ -14,7 +14,7 @@ export const DataKritikSaran = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/kritik-saran")
+    fetch("https://tpq-backend-api.vercel.app/api/kritik-saran")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data) {

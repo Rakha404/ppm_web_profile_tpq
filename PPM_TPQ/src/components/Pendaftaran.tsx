@@ -7,7 +7,7 @@ export const JalurPendaftaran = () => {
 
   useEffect(() => {
     // Ambil nomor telepon dinamis dari settingan backend
-    fetch("http://localhost:5000/api/section-pendaftaran")
+    fetch("https://tpq-backend-api.vercel.app/api/section-pendaftaran")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data && resData.data.nomor_wa) {

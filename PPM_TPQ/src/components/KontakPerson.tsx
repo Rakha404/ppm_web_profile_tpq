@@ -15,7 +15,7 @@ export default function KontakPage() {
     });
 
     // Ambil data nomor WA dinamis dari settingan backend database
-    fetch("http://localhost:5000/api/section-pendaftaran")
+    fetch("https://tpq-backend-api.vercel.app/api/section-pendaftaran")
       .then((res) => res.json())
       .then((resData) => {
         if (resData.success && resData.data && resData.data.nomor_wa) {

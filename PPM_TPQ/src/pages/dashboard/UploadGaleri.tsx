@@ -23,7 +23,7 @@ export const UploadGaleri = () => {
     const [message, setMessage] = useState("");
 
     const fetchGaleri = () => {
-        fetch("http://localhost:5000/api/galeri")
+        fetch("https://tpq-backend-api.vercel.app/api/galeri")
             .then((res) => res.json())
             .then((resData) => {
                 if (resData.success) setListGaleri(resData.data);
@@ -58,7 +58,7 @@ export const UploadGaleri = () => {
                 dataToSend.append("images", selectedFiles[i]);
             }
 
-            const res = await fetch("http://localhost:5000/api/galeri/add", {
+            const res = await fetch("https://tpq-backend-api.vercel.app/api/galeri/add", {
                 method: "POST",
                 body: dataToSend
             });
@@ -81,7 +81,7 @@ export const UploadGaleri = () => {
         if (!window.confirm("Apakah kamu yakin ingin menghapus seluruh album kegiatan ini?")) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/galeri/delete/${id}`, {
+            const res = await fetch(`https://tpq-backend-api.vercel.app/api/galeri/delete/${id}`, {
                 method: "DELETE"
             });
             const data = await res.json();
@@ -121,7 +121,7 @@ export const UploadGaleri = () => {
             console.log("Mengirim update untuk ID:", id);
             console.log("Files yang akan ditambah:", editFiles?.length || 0);
 
-            const res = await fetch(`http://localhost:5000/api/galeri/update/${id}`, {
+            const res = await fetch(`https://tpq-backend-api.vercel.app/api/galeri/update/${id}`, {
                 method: "PUT",
                 body: dataToSend
             });
