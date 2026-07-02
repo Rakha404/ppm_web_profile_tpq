@@ -192,6 +192,11 @@ app.use('/api/banner', bannerRoutes);
 app.use('/api/profil-full', profilFullRoutes);
 app.use('/api/halaman-dinamis', halamanDinamisRoutes); // ➔ ➕ REGISTER URL BASE ROUTE BARU DI SINI
 
-// 7. RUNNING SERVER
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server berjalan di port ${PORT}`));
+// Jalankan app.listen HANYA saat kamu coding di lokal komputer (localhost)
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => console.log(`🚀 Server lokal jalan di port ${PORT}`));
+}
+
+// 🌍 WAJIB: Export app agar bisa dibaca oleh Serverless Vercel
+module.exports = app;
